@@ -44,9 +44,9 @@ export default function Hero() {
                 <div className="flex flex-col justify-end col-start-10 col-end-13 gap-6">
                     <div
                         id="header-image"
-                        className="img-container br-s overflow-hidden h-full"
+                        className="img-container overflow-hidden h-full"
                     >
-                        <img src="/img/portrait.jpg" alt="Headshot photo" />
+                        <img className="rounded-2xl" src="/src/assets/img/portrait.jpg" alt="Headshot photo" />
                     </div>
                     <p className="text-left text-light">
                         A designer who loves creating beautiful and marketing-optimized

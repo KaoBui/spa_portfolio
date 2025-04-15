@@ -4,20 +4,20 @@ export default function Hero() {
             id="hero"
             className="flex flex-col justify-end gap-20 text-center px-8 py-16 h-screen"
         >
-            <div className="grid grid-cols-12 gap-col">
+            <div className="grid grid-cols-12 gap-8">
                 <div className="flex flex-col gap-12 text-left justify-between col-start-1 col-end-9">
-                    <div className="flex gap-8">
+                    <div className="flex gap-24 text-1">
                         <div className="flex flex-col items-start">
-                            <p className="text-light">From</p>
+                            <p className="text-light text-0">From</p>
                             <p>Hanoi, Vietnam</p>
                         </div>
                         <div className="flex flex-col items-start">
-                            <p className="text-light">Currently in</p>
+                            <p className="text-light text-0">Currently in</p>
                             <p>Lyon, France</p>
                         </div>
                     </div>
 
-                    <h4 className="split-text text-2">Designer & Developer</h4>
+                    <h4 className="split-text text-3">Designer & Developer</h4>
 
                     <h1 id="hero-title" className="text-left">
                         <svg viewBox="0 0 872 216" xmlns="http://www.w3.org/2000/svg" >
@@ -48,7 +48,7 @@ export default function Hero() {
                     >
                         <img className="rounded-2xl" src="/src/assets/img/portrait.jpg" alt="Headshot photo" />
                     </div>
-                    <p className="text-left text-light">
+                    <p className="text-left text-light text-1">
                         A designer who loves creating beautiful and marketing-optimized
                         websites to help businesses live their potential.
                     </p>

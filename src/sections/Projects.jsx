@@ -69,8 +69,8 @@ export default function Projects() {
   }, []);
 
   useEffect(() => {
-    if (!titleRef.current) return
-  
+    if (!titleRef.current) return;
+
     gsap.fromTo(
       titleRef.current,
       { opacity: 0 },
@@ -78,10 +78,9 @@ export default function Projects() {
         opacity: 1,
         duration: 0.5,
         ease: "power2.out",
-      }
-    )
+      },
+    );
   }, [activeProject]);
-  
 
   return (
     <section id="projects" className="relative grid grid-cols-12 gap-16 px-8">
@@ -90,9 +89,12 @@ export default function Projects() {
         className="col-start-1 col-end-6 flex h-screen flex-col justify-between gap-24 py-16"
       >
         <div className="flex flex-col gap-12">
-          <h2 className="text-5 leading-[0.8] font-bold tracking-tighter">
-            Selected works
-          </h2>
+          <div className="flex gap-1">
+            <p className="text-2 font-bold">1</p>
+            <h2 className="text-5 leading-[0.8] font-bold tracking-tighter">
+              Selected works
+            </h2>
+          </div>
           <div className="flex flex-col gap-2">
             {projects.map((project) => (
               <p key={project.id} className="project-index">

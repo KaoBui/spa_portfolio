@@ -2,7 +2,7 @@ export default function Hero() {
     return (
         <section
             id="hero"
-            className="flex flex-col justify-end gap-20 text-center px-8 py-16 h-screen"
+            className="flex flex-col justify-end gap-20 text-center h-screen py-8"
         >
             <div className="grid grid-cols-12 gap-8">
                 <div className="flex flex-col gap-12 text-left justify-between col-start-1 col-end-9">

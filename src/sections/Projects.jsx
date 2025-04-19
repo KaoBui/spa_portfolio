@@ -49,44 +49,53 @@ export default function Projects() {
       scrub: true,
       pinSpacing: false,
     });
-    const triggers = [];
+    const projectTriggers = [];
     cardRefs.current.forEach((card, index) => {
       const trigger = ScrollTrigger.create({
         trigger: card,
         start: "top center",
+        end: "bottom center",
         onEnter: () => setActiveProject(projects[index]),
         onEnterBack: () => setActiveProject(projects[index]),
         id: `project-trigger-${index}`,
         name: "project-info-scroll",
       });
-      triggers.push(trigger);
+      projectTriggers.push(trigger);
     });
 
     return () => {
       pinProject.kill();
-      triggers.forEach((t) => t.kill());
+      projectTriggers.forEach((t) => t.kill());
     };
   }, []);
 
   useEffect(() => {
     if (!titleRef.current) return;
 
+    const el = titleRef.current;
+    const words = activeProject.title.split(" ");
+
+    el.innerHTML = words
+      .map((word) => `<span class="word inline-block whitespace-nowrap">${word}&nbsp;</span>`)
+      .join("");
     gsap.fromTo(
-      titleRef.current,
-      { opacity: 0 },
+      el.querySelectorAll(".word"),
+      { opacity: 0, y: 20 },
       {
         opacity: 1,
-        duration: 0.5,
+        y: 0,
+        stagger: 0.05,
+        duration: 0.25,
         ease: "power2.out",
-      },
+      }
     );
   }, [activeProject]);
 
   return (
-    <section id="projects" className="relative grid grid-cols-12 gap-16 px-8">
+    <section id="projects" className="relative grid grid-cols-12 gap-16">
       <div
         id="projects-left"
-        className="col-start-1 col-end-6 flex h-screen flex-col justify-between gap-24 py-16"
+        className="col-start-1 col-end-6 flex h-screen flex-col justify-between py-16"
       >
         <div className="flex flex-col gap-12">
           <div className="flex gap-1">
@@ -96,15 +105,13 @@ export default function Projects() {
             </h2>
           </div>
           <div className="flex flex-col gap-2">
-            {projects.map((project) => (
-              <p key={project.id} className="project-index">
-                <span>#{project.id}</span> {project.name}
-              </p>
-            ))}
+            <p key={activeProject.id} className="text-1">
+              <span className="w-[40px] inline-block">#{activeProject.id}</span> {activeProject.name}
+            </p>
           </div>
         </div>
-        <div className="flex flex-col items-start gap-8">
-          <h4 ref={titleRef} className="text-3">
+        <div className="flex flex-col items-start justify-end gap-8">
+          <h4 ref={titleRef} className="text-3 leading-none">
             {activeProject.title}
           </h4>
           <Button href={activeProject.url}>SEE MORE</Button>

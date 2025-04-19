@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="footer flex h-screen flex-col items-start justify-end gap-24 px-16 py-8 pb-0 text-dark">
+    <footer className="footer flex h-screen flex-col items-start justify-end gap-24 pb-0 text-dark">
       <div className="flex flex-col items-start gap-0">
         <p className="text-2">Let's start creating</p>
         <p className="text-5 leading-none font-bold tracking-tighter">

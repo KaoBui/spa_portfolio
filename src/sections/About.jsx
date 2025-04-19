@@ -57,7 +57,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative grid h-screen grid-rows-[1fr_auto] px-8 py-16"
+      className="relative grid h-screen grid-rows-[1fr_auto]"
     >
       <div
         id="about-title-wrapper"

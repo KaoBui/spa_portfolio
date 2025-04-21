@@ -76,7 +76,10 @@ export default function Projects() {
     const words = activeProject.title.split(" ");
 
     el.innerHTML = words
-      .map((word) => `<span class="word inline-block whitespace-nowrap">${word}&nbsp;</span>`)
+      .map(
+        (word) =>
+          `<span class="word inline-block whitespace-nowrap">${word}&nbsp;</span>`,
+      )
       .join("");
     gsap.fromTo(
       el.querySelectorAll(".word"),
@@ -87,7 +90,7 @@ export default function Projects() {
         stagger: 0.05,
         duration: 0.25,
         ease: "power2.out",
-      }
+      },
     );
   }, [activeProject]);
 
@@ -106,7 +109,8 @@ export default function Projects() {
           </div>
           <div className="flex flex-col gap-2">
             <p key={activeProject.id} className="text-1">
-              <span className="w-[40px] inline-block">#{activeProject.id}</span> {activeProject.name}
+              <span className="inline-block w-[40px]">#{activeProject.id}</span>{" "}
+              {activeProject.name}
             </p>
           </div>
         </div>

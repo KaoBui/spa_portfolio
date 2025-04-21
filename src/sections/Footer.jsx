@@ -1,8 +1,44 @@
-import React from "react";
+import { useState, useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
+  const svgRef = useRef(null);
+  const footerRef = useRef(null);
+
+  useEffect(() => {
+    if (!footerRef.current || !svgRef.current) return;
+    const ctx = gsap.context(() => {
+      const footerTrigger = gsap.timeline({
+        scrollTrigger: {
+          trigger: footerRef.current,
+          start: "bottom 110%",
+          toggleActions: "play reverse play reverse",
+        },
+      });
+
+      footerTrigger.fromTo(
+        svgRef.current.querySelectorAll("path"),
+        {
+          yPercent: 50,
+          ease: "power2.out",
+        },
+        {
+          yPercent: 0,
+          ease: "power2.out",
+          stagger: 0.02,
+        },
+      );
+    }, footerRef);
+    return () => ctx.revert(); // Cleanup everything on unmount
+  }, []);
+
   return (
-    <footer className="footer flex h-screen flex-col items-start justify-end gap-24 pb-0 text-dark">
+    <footer
+      ref={footerRef}
+      className="footer flex h-screen flex-col items-start justify-end gap-24 pb-0 text-dark"
+    >
       <div className="flex flex-col items-start gap-0">
         <p className="text-2">Let's start creating</p>
         <p className="text-5 leading-none font-bold tracking-tighter">
@@ -16,8 +52,9 @@ const Footer = () => {
         </p>
         <p>Lyon, France</p>
         <p>Designed and developped by Kao</p>
-        <div className="absolute bottom-0 left-0 w-full overflow-hideen h-[200px] -z-1">
+        <div className="absolute bottom-0 left-0 -z-1 h-[200px] w-full overflow-hidden">
           <svg
+            ref={svgRef}
             className="opacity-[0.15]"
             viewBox="0 0 872 216"
             xmlns="http://www.w3.org/2000/svg"
@@ -45,6 +82,9 @@ const Footer = () => {
             <path id="letter-I" d="M871.169 211H849.644V4.93398H871.169V211Z" />
           </svg>
         </div>
+      </div>
+      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-dark rounded-full">
+
       </div>
     </footer>
   );

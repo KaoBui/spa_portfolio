@@ -22,20 +22,26 @@ const paragraphs = [
 export default function About() {
   const aboutCardRefs = useRef([]);
   const titleSpanRefs = useRef([]);
+  const endSpacerRef = useRef(null);
+
 
   useEffect(() => {
     const paragraphs = gsap.utils.toArray(".about-text");
     const aboutTitle = document.getElementById("about-title");
     const aboutTitlleWrapper = document.getElementById("about-title-wrapper");
+    const lastAboutTitle = paragraphs[paragraphs.length - 1];
+
 
     const pinAbout = ScrollTrigger.create({
       trigger: "#about",
       start: "top top",
-      endTrigger: "#about-description",
-      end: "bottom+=100 bottom",
+      endTrigger: "#about-end",
+      end: "bottom bottom",
       pin: aboutTitlleWrapper,
       scrub: true,
       pinSpacing: false,
+      markers: true,
+      id: "about-pin",
     });
 
     const aboutTitleAnimation = gsap.fromTo(
@@ -60,7 +66,20 @@ export default function About() {
     const highlightSpan = (index) => {
       titleSpanRefs.current.forEach((span, i) => {
         gsap.to(span, {
-          opacity: i === index ? 1 : 0.15,
+          opacity: i === index ? 1 : 0.12,
+          scale: i === index ? 1.1 : 0.9,
+          transformOrigin: "left center",
+          duration: 0.3,
+          ease: "power2.out",
+        });
+      });
+    };
+
+    const removeHighlight = () => {
+      titleSpanRefs.current.forEach((span) => {
+        gsap.to(span, {
+          opacity: 1,
+          scale: 1,
           duration: 0.3,
           ease: "power2.out",
         });
@@ -68,28 +87,57 @@ export default function About() {
     };
 
     aboutCardRefs.current.forEach((el, i) => {
+      const scrollId = `about-card-${i}`;
+      el.dataset.scrollId = scrollId;
+
       const tl = gsap.timeline({
         scrollTrigger: {
+          id: scrollId,
           trigger: el,
-          start: "bottom bottom+=30",
-          end: "top center",
+          start: "bottom bottom",
+          end: "top 10%",
+          pin: true,
+          pinSpacing: true,
           scrub: true,
           onEnter: () => highlightSpan(i),
           onEnterBack: () => highlightSpan(i),
+          onLeaveBack: () => {
+            if (i === 0) removeHighlight(); // 👈 reset if first
+          },
+          markers: true,
+
         },
       });
 
       tl.fromTo(
         el,
-        { opacity: 0, yPercent: 0 },
-        { opacity: 1, yPercent: 10, ease: "power2.out" },
+        { opacity: 0.5, yPercent: 10 },
+        { opacity: 1, yPercent: 0, ease: "power2.out" },
       );
 
       tl.to(el, {
         opacity: 0,
-        yPercent: 20,
+        yPercent: -10,
         ease: "power2.in",
       });
+    });
+
+    requestAnimationFrame(() => {
+      let totalPinHeight = 0;
+    
+      aboutCardRefs.current.forEach((el) => {
+        const scrollId = el.dataset.scrollId;
+        const trigger = ScrollTrigger.getById(scrollId);
+    
+        if (trigger) {
+          const height = trigger.end - trigger.start;
+          totalPinHeight += height;
+        }
+      });
+    
+      if (endSpacerRef.current) {
+        endSpacerRef.current.style.height = `${totalPinHeight}px`;
+      }
     });
 
     return () => {
@@ -120,7 +168,7 @@ export default function About() {
       </div>
       <div className="grid grid-cols-12 gap-16">
         <div className="col-start-1 col-end-4"></div>
-        <div className="col-start-7 col-end-13 lg:py-8 xl:py-10">
+        <div className="col-start-7 col-end-13 pt-8 lg:pt-16 xl:pt-24">
           <div id="about-description" className="relative">
             {paragraphs.map((paragraph, i) => (
               <div key={i} ref={(el) => (aboutCardRefs.current[i] = el)}>
@@ -128,6 +176,7 @@ export default function About() {
               </div>
             ))}
           </div>
+          <div ref={endSpacerRef} id="about-end" className="h-[250vh]"></div>
         </div>
       </div>
     </section>

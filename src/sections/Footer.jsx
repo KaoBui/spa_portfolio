@@ -31,11 +31,12 @@ const Footer = () => {
         },
       );
     }, footerRef);
-    return () => ctx.revert(); // Cleanup everything on unmount
+    // return () => ctx.revert(); // Cleanup everything on unmount
   }, []);
 
   return (
     <footer
+      id="footer"
       ref={footerRef}
       className="footer flex h-screen flex-col items-start justify-end gap-24 pb-0 text-dark"
     >
@@ -83,9 +84,7 @@ const Footer = () => {
           </svg>
         </div>
       </div>
-      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-dark rounded-full">
-
-      </div>
+      <div className="absolute bottom-0 left-1/2 h-1 w-1 -translate-x-1/2 transform rounded-full bg-dark"></div>
     </footer>
   );
 };

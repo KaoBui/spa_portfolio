@@ -40,7 +40,6 @@ export default function About() {
       pin: aboutTitlleWrapper,
       scrub: true,
       pinSpacing: false,
-      markers: true,
       id: "about-pin",
     });
 
@@ -104,8 +103,6 @@ export default function About() {
           onLeaveBack: () => {
             if (i === 0) removeHighlight(); // 👈 reset if first
           },
-          markers: true,
-
         },
       });
 
@@ -168,7 +165,7 @@ export default function About() {
       </div>
       <div className="grid grid-cols-12 gap-16">
         <div className="col-start-1 col-end-4"></div>
-        <div className="col-start-7 col-end-13 pt-8 lg:pt-16 xl:pt-24">
+        <div className="relative col-start-7 col-end-13 pt-8 lg:pt-16 xl:pt-24">
           <div id="about-description" className="relative">
             {paragraphs.map((paragraph, i) => (
               <div key={i} ref={(el) => (aboutCardRefs.current[i] = el)}>
@@ -176,7 +173,7 @@ export default function About() {
               </div>
             ))}
           </div>
-          <div ref={endSpacerRef} id="about-end" className="h-[250vh]"></div>
+          <div ref={endSpacerRef} id="about-end" className="h-[250vh] absolute"></div>
         </div>
       </div>
     </section>

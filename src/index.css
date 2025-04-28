@@ -52,6 +52,7 @@
 
 html {
   font-size: var(--step-1);
+  scroll-behavior: smooth;
 }
 
 body {
@@ -105,10 +106,10 @@ button {
 button:hover {
 }
 
-button:focus,
+/* button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
+} */
 
 .swiper-pagination {
   position: relative !important;

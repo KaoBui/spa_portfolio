@@ -130,7 +130,7 @@ export default function Navbar() {
 
       {/*Menu Overlay */}
       <div
-        className={`fixed top-0 right-0 z-[200] flex h-full w-3/4 max-w-xs transform flex-col gap-8 bg-white p-8 ${
+        className={`fixed top-0 right-0 z-[200] flex h-full w-3/4 max-w-xs transform flex-col gap-8 bg-white p-8 rounded-l-xl ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         } transition-transform duration-300`}
       >
@@ -143,11 +143,11 @@ export default function Navbar() {
           home
         </Link>
         <a
-          href="#footer"
+          href="#projects"
           onClick={() => setMenuOpen(false)}
           className="text-xl font-semibold"
         >
-          contacts
+          projects
         </a>
         <a
           href="#about"
@@ -157,11 +157,11 @@ export default function Navbar() {
           about
         </a>
         <a
-          href="#projects"
+          href="#footer"
           onClick={() => setMenuOpen(false)}
           className="text-xl font-semibold"
         >
-          projects
+          contacts
         </a>
       </div>
     </>

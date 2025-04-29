@@ -6,9 +6,10 @@ gsap.registerPlugin(ScrollTrigger);
 const Footer = () => {
   const svgRef = useRef(null);
   const footerRef = useRef(null);
+  const timelineRef = useRef(null); // ← store timeline
+
 
   useEffect(() => {
-    if (!footerRef.current || !svgRef.current) return;
     const ctx = gsap.context(() => {
       const footerTrigger = gsap.timeline({
         scrollTrigger: {
@@ -31,7 +32,7 @@ const Footer = () => {
         },
       );
     }, footerRef);
-    // return () => ctx.revert(); // Cleanup everything on unmount
+    return () => ctx.kill();
   }, []);
 
   return (

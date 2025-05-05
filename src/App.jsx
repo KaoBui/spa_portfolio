@@ -7,10 +7,12 @@ import Orange from "./pages/Orange";
 import Adecco from "./pages/Adecco";
 import TheArtOffice from "./pages/TheArtOffice";
 import ScrollToTop from "./components/ScrollToTop";
+import IntroAnimation from "./components/IntroAnimation";
 
 function App() {
   return (
     <>
+      <IntroAnimation />
       <div className="texture-overlay" />
       <Navbar />
       <main>

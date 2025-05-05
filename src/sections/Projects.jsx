@@ -3,36 +3,8 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ProjectCard from "../components/ProjectCard";
 import Button from "../components/Button";
-import OrangeMockup from "../assets/img/orange-mockup.jpg";
-import AdeccoMockup from "../assets/img/adecco-mockup.jpg";
+import { projects } from "../projectsInfo";
 gsap.registerPlugin(ScrollTrigger);
-
-const projects = [
-  {
-    id: 1,
-    name: "Orange Space",
-    title: "Help a coworking space reinforce their presence online",
-    url: "/projects/orange-space",
-    imageSrc: OrangeMockup,
-    tags: ["Web Design", "Web Development", "SEO"],
-  },
-  {
-    id: 2,
-    name: "Adecco France",
-    title: "Optimize homepage for the market leader platform",
-    url: "/projects/adecco",
-    imageSrc: AdeccoMockup,
-    tags: ["UX Research", "Web Development", "Accessibility"],
-  },
-  {
-    id: 3,
-    name: "The Art Office",
-    title: "Build a brand identity for an art startup",
-    url: "/projects/orange-space",
-    imageSrc: OrangeMockup,
-    tags: ["Web Design", "Web Development", "SEO"],
-  },
-];
 
 export default function Projects() {
   const [activeProject, setActiveProject] = useState(projects[0]);
@@ -78,12 +50,12 @@ export default function Projects() {
     el.innerHTML = words
       .map(
         (word) =>
-          `<span class="word inline-block whitespace-nowrap">${word}&nbsp;</span>`,
+          `<span class="word inline-block whitespace-nowrap overflow-hidden"><span class="inline-block overflow-hidden">${word}&nbsp;</span></span>`,
       )
       .join("");
     gsap.fromTo(
-      el.querySelectorAll(".word"),
-      { opacity: 0, y: 20 },
+      el.querySelectorAll(".word > span"),
+      { opacity: 0, y: "100%" },
       {
         opacity: 1,
         y: 0,

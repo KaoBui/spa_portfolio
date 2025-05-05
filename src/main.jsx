@@ -5,6 +5,11 @@ import "./index.css";
 import "./lenis";
 import App from "./App.jsx";
 
+// REMOVE SESSION STORAGE
+window.addEventListener("beforeunload", () => {
+  sessionStorage.removeItem("heroAnimated");
+});
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>

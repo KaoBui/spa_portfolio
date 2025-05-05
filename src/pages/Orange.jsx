@@ -1,5 +1,9 @@
 import Layout from "../sections/Layout";
 import ProjectHeader from "../components/ProjectHeader";
+import BeforeAfterSlider from "../components/BeforeAfterSlider";
+import ProjectCarousel from "../components/ProjectCarousel";
+import RelatedProjects from "../components/RelatedProjects";
+// Project Assets
 import OrangeVideo from "../assets/vid/Orange Header.mp4";
 import OrangeMobile from "../assets/img/orange-mobile-mockup.png";
 import OrangeMockup from "../assets/img/orange-mockup.jpg";
@@ -10,17 +14,14 @@ import Orange2 from "../assets/img/orange-blog-post.jpg";
 import Orange3 from "../assets/img/orange-feature-section.jpg";
 import Orange4 from "../assets/img/orange-services.jpg";
 import Orange5 from "../assets/img/orange-benefits.jpg";
-
-import BeforeAfterSlider from "../components/BeforeAfterSlider";
-import ProjectCarousel from "../components/ProjectCarousel";
-
 const projectImages = [Orange1, Orange2, Orange3, Orange4, Orange5];
 
 export default function Orange() {
+  const currentProjectId = 1;
   return (
     <>
       <Layout>
-        <section className="space-y-16">
+        <section className="space-y-24">
           <div className="grid grid-cols-12 gap-12 pt-24">
             <div className="col-start-1 col-end-9 flex flex-col gap-4">
               <div className="flex gap-2 text-1">
@@ -56,7 +57,7 @@ export default function Orange() {
                 brief
               </p>
             </div>
-            <div className="col-start-4 col-end-13 flex flex-col gap-8">
+            <div className="col-start-5 col-end-13 flex flex-col gap-8">
               <h2 className="text-3 leading-none">
                 Help a coworking space reinforce their presence online
               </h2>
@@ -102,6 +103,7 @@ export default function Orange() {
           <div className="gap-12">
             <ProjectCarousel images={projectImages} />
           </div>
+          <RelatedProjects currentProjectId={currentProjectId} />
         </section>
       </Layout>
     </>

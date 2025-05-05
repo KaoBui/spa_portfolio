@@ -28,7 +28,7 @@ export default function BeforeAfterSlider({ beforeImg, afterImg }) {
       <div className="mt-6 flex justify-center gap-4">
         <button
           className={`rounded-lg tracking-wide px-4 py-2 font-semibold ${
-            !showAfter ? "bg-black text-white" : "border bg-white text-black"
+            !showAfter ? "bg-black text-white" : " bg-light text-white"
           }`}
           onClick={() => setShowAfter(false)}
         >
@@ -36,7 +36,7 @@ export default function BeforeAfterSlider({ beforeImg, afterImg }) {
         </button>
         <button
           className={`rounded-lg tracking-wide px-4 py-2 font-semibold ${
-            showAfter ? "bg-black text-white" : "border bg-white text-black"
+            showAfter ? "bg-black text-white" : " bg-light text-white"
           }`}
           onClick={() => setShowAfter(true)}
         >

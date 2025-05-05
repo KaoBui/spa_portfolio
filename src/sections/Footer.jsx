@@ -1,21 +1,26 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
+import { useLocation } from "react-router";
 import { gsap } from "gsap";
+import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
   const svgRef = useRef(null);
   const footerRef = useRef(null);
-  const timelineRef = useRef(null); // ← store timeline
-
+  const location = useLocation(); // 👈 get current route
 
   useEffect(() => {
+    if (!footerRef.current || !svgRef.current) return;
+
     const ctx = gsap.context(() => {
       const footerTrigger = gsap.timeline({
         scrollTrigger: {
           trigger: footerRef.current,
-          start: "bottom 110%",
+          start: "top 5%",
           toggleActions: "play reverse play reverse",
+          markers: true, 
+          invalidateOnRefresh: true, 
         },
       });
 
@@ -32,8 +37,11 @@ const Footer = () => {
         },
       );
     }, footerRef);
-    return () => ctx.kill();
-  }, []);
+
+    ScrollTrigger.refresh();
+
+    return () => ctx.revert();
+  }, [location.pathname]);
 
   return (
     <footer

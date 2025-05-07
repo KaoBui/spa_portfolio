@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router";
+import { Routes, Route, useLocation } from "react-router";
 import Layout from "./sections/Layout";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
@@ -10,6 +10,8 @@ import ScrollToTop from "./components/ScrollToTop";
 import IntroAnimation from "./components/IntroAnimation";
 
 function App() {
+  const location = useLocation()
+
   return (
     <>
       <IntroAnimation />
@@ -17,16 +19,14 @@ function App() {
       <Navbar />
       <main>
         <ScrollToTop />
-        <Routes>
+        <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
           <Route path="/projects/orange-space" element={<Orange />} />
           <Route path="/projects/adecco" element={<Adecco />} />
           <Route path="/projects/the-art-office" element={<TheArtOffice />} />
         </Routes>
       </main>
-      <Layout>
         <Footer />
-      </Layout>
     </>
   );
 }

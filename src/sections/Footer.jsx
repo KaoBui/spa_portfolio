@@ -47,7 +47,7 @@ const Footer = () => {
     <footer
       id="footer"
       ref={footerRef}
-      className="footer flex h-screen flex-col items-start justify-end gap-24 pb-0 text-dark"
+      className="footer flex h-screen flex-col items-start justify-end gap-24 px-6 md:px-8 lg:px-12 2xl:px-16 pb-0 text-dark"
     >
       <div className="flex flex-col items-start gap-0">
         <p className="text-2">Let's start creating</p>

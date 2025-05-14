@@ -1,14 +1,20 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useLocation } from "react-router";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
+import { projects } from "../projectsInfo";
 
 export default function Layout({ children }) {
   const location = useLocation();
+  const pathname = location.pathname;
   const pageRef = useRef();
   const layoutRef = useRef();
   const maskRef = useRef();
   const [transitionComplete, setTransitionComplete] = useState(false);
+
+  // MATCH PROJECT NAME
+  const project = projects.find((p) => p.url === pathname);
+  const pageName = project?.name ?? "Home"; 
 
   useGSAP(
     () => {
@@ -109,7 +115,7 @@ export default function Layout({ children }) {
           "--c": "100%",
         }}
       >
-        <p className="text-3 text-white">PROJECT NAME</p>
+        <p className="text-4 uppercase text-white"> {pageName}</p>
       </div>
       <div
         ref={layoutRef}

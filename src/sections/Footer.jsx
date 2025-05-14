@@ -1,26 +1,27 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { useLocation } from "react-router";
 import { gsap } from "gsap";
-import { useGSAP } from '@gsap/react';
+import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
   const svgRef = useRef(null);
   const footerRef = useRef(null);
-  const location = useLocation(); // 👈 get current route
+  const location = useLocation();
+  const pathname = location.pathname;
 
-  useEffect(() => {
-    if (!footerRef.current || !svgRef.current) return;
+  useGSAP(
+    () => {
+      if (!footerRef.current || !svgRef.current) return;
 
-    const ctx = gsap.context(() => {
       const footerTrigger = gsap.timeline({
         scrollTrigger: {
           trigger: footerRef.current,
           start: "top 5%",
           toggleActions: "play reverse play reverse",
-          markers: true, 
-          invalidateOnRefresh: true, 
+          markers: true,
+          invalidateOnRefresh: true,
         },
       });
 
@@ -36,18 +37,15 @@ const Footer = () => {
           stagger: 0.02,
         },
       );
-    }, footerRef);
-
-    ScrollTrigger.refresh();
-
-    return () => ctx.revert();
-  }, [location.pathname]);
+    },
+    { dependencies: [pathname], scope: footerRef },
+  );
 
   return (
     <footer
       id="footer"
       ref={footerRef}
-      className="footer flex h-screen flex-col items-start justify-end gap-24 px-6 md:px-8 lg:px-12 2xl:px-16 pb-0 text-dark"
+      className="footer flex h-screen flex-col items-start justify-end gap-24 px-6 pb-0 text-dark md:px-8 lg:px-12 2xl:px-16"
     >
       <div className="flex flex-col items-start gap-0">
         <p className="text-2">Let's start creating</p>

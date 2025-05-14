@@ -1,5 +1,8 @@
 import OrangeMockup from "./assets/img/orange-mockup.jpg";
+import OrangeVideo from "./assets/vid/Orange-header.mp4";
+
 import AdeccoMockup from "./assets/img/adecco-mockup.jpg";
+import ArtOfficeMockup from "./assets/img/artoffice-mockup.jpg";
 
 export const projects = [
   {
@@ -9,6 +12,8 @@ export const projects = [
     url: "/projects/orange-space",
     imageSrc: OrangeMockup,
     tags: ["Web Design", "Web Development", "SEO"],
+    video: OrangeVideo,
+    year: 2022,
   },
   {
     id: 2,
@@ -17,13 +22,15 @@ export const projects = [
     url: "/projects/adecco",
     imageSrc: AdeccoMockup,
     tags: ["UX Research", "Web Development", "Accessibility"],
+    year: 2024,
   },
   {
     id: 3,
     name: "The Art Office",
     title: "Build a brand identity for an art startup",
-    url: "/projects/orange-space",
-    imageSrc: OrangeMockup,
-    tags: ["Web Design", "Web Development", "SEO"],
+    url: "/projects/the-art-office",
+    imageSrc: ArtOfficeMockup,
+    tags: ["Web Design", "Web Development", "Branding"],
+    year: 2024,
   },
 ];

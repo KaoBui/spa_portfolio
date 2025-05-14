@@ -1,5 +1,4 @@
 import { Routes, Route, useLocation } from "react-router";
-import Layout from "./sections/Layout";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Footer from "./sections/Footer";
@@ -10,7 +9,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import IntroAnimation from "./components/IntroAnimation";
 
 function App() {
-  const location = useLocation()
+  const location = useLocation();
 
   return (
     <>
@@ -26,7 +25,7 @@ function App() {
           <Route path="/projects/the-art-office" element={<TheArtOffice />} />
         </Routes>
       </main>
-        <Footer />
+      <Footer />
     </>
   );
 }

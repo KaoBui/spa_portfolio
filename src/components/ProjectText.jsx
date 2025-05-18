@@ -2,7 +2,7 @@ const ProjectText = ({ textID }) => {
   return (
     <div className="grid grid-cols-12 gap-12">
       <div className="col-start-1 col-end-7 flex flex-col items-start justify-start gap-4">
-        <p className="rounded-full border-1 border-light px-4 py-1 text-center text-1 text-light">
+        <p className="rounded-full border-1 border-light px-4 py-1 text-center text-light">
           {textID.tag}
         </p>
         <h2 className="text-3 leading-none"> {textID.title}</h2>

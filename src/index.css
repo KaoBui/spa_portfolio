@@ -77,8 +77,7 @@ body,
   z-index: -1;
   pointer-events: none;
   background-image:
-    url("./assets/img/noise-grunge.png"),
-    url("./assets/img/noise-3.png"),
+    url("./assets/img/noise-grunge.png"), url("./assets/img/noise-3.png"),
     linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
   background-size: 50%, auto;
   background-repeat: repeat;
@@ -94,13 +93,8 @@ a:hover {
 }
 
 button {
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
   font-family: inherit;
-  /* background-color: #1a1a1a; */
   cursor: pointer;
-  transition: border-color 0.25s;
 }
 
 button:hover {

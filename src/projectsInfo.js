@@ -1,8 +1,6 @@
 import OrangeMockup from "./assets/img/orange-mockup.jpg";
-import OrangeVideo from "./assets/vid/Orange-header.mp4";
-
 import AdeccoMockup from "./assets/img/adecco-mockup.jpg";
-import ArtOfficeMockup from "./assets/img/artoffice-mockup.jpg";
+import ArtOfficeMockup from "./assets/img/tao-mockup.jpg";
 
 export const projects = [
   {
@@ -12,7 +10,7 @@ export const projects = [
     url: "/projects/orange-space",
     imageSrc: OrangeMockup,
     tags: ["Web Design", "Web Development", "SEO"],
-    video: OrangeVideo,
+    video: "https://kao-portfolio-video.s3.eu-west-3.amazonaws.com/orange-video-heaeder.mp4",
     year: 2022,
   },
   {
@@ -27,10 +25,11 @@ export const projects = [
   {
     id: 3,
     name: "The Art Office",
-    title: "Build a brand identity for an art startup",
+    title: "Shaping the visual identity of an art-driven business",
     url: "/projects/the-art-office",
     imageSrc: ArtOfficeMockup,
-    tags: ["Web Design", "Web Development", "Branding"],
+    tags: ["Web Design", "Branding"],
+    video: "https://kaobui.s3.eu-west-3.amazonaws.com/tao-video.mp4",
     year: 2024,
   },
 ];

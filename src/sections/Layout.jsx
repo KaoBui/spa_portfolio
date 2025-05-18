@@ -10,97 +10,88 @@ export default function Layout({ children }) {
   const pageRef = useRef();
   const layoutRef = useRef();
   const maskRef = useRef();
-  const [transitionComplete, setTransitionComplete] = useState(false);
+  const alreadyAnimated = sessionStorage.getItem("heroAnimated");
 
   // MATCH PROJECT NAME
   const project = projects.find((p) => p.url === pathname);
-  const pageName = project?.name ?? "Home"; 
+  const pageName = project?.name ?? "Home";
 
   useGSAP(
     () => {
       const tl = gsap.timeline();
-
-      // Exit animation
-      tl.to(layoutRef.current, {
-        opacity: 0,
-        duration: 0.5,
-        ease: "power2.inOut",
-      })
-        .to(
-          maskRef.current,
-          {
-            duration: 1,
-            ease: "power3.inOut",
-            "--b": "100%",
-          },
-          "<+0",
-        )
-        .to(
-          maskRef.current,
-          {
-            duration: 0.5,
-            ease: "power3.inOut",
-            "--a": "200%",
-          },
-          "<+0.5",
-        )
-        .to(
-          maskRef.current,
-          {
-            duration: 0.5,
-            ease: "power3.inOut",
-            "--c": "50%",
-            onComplete: () => {
-              setTransitionComplete(true); // now the layout can animate in
-            },
-          },
-          "<+0.25",
-        )
-        .to(maskRef.current, {
-          duration: 0.5,
-          ease: "power3.inOut",
-          "--c": "0%",
+      if (alreadyAnimated) {
+        // Exit animation
+        tl.to(layoutRef.current, {
+          opacity: 0,
+          duration: 0.2,
+          ease: "power2.inOut",
         })
-        .to(
-          maskRef.current,
-          {
+          .to(
+            maskRef.current,
+            {
+              duration: 1,
+              ease: "power3.inOut",
+              "--b": "100%",
+            },
+            "<+0",
+          )
+          .to(
+            maskRef.current,
+            {
+              duration: 0.5,
+              ease: "power3.inOut",
+              "--a": "200%",
+            },
+            "<+0.5",
+          )
+          .to(
+            maskRef.current,
+            {
+              duration: 0.5,
+              ease: "power3.inOut",
+              "--c": "50%",
+              onComplete: () => {
+                setTransitionComplete(true);
+              },
+            },
+            "<+0.25",
+          )
+          .to(layoutRef.current, {
+            opacity: 1,
+            duration: 0.2,
+            ease: "power2.out",
+          })
+          .to(maskRef.current, {
             duration: 0.5,
             ease: "power3.inOut",
-            "--a": "60%",
-          },
-          "<+0.25",
-        )
-        .to(
-          maskRef.current,
-          {
-            duration: 1,
-            ease: "power3.inOut",
-            "--b": "0%",
-          },
-          "<+0",
-        );
-    },
-    { dependencies: [location.pathname], scope: pageRef },
-  );
-
-  useGSAP(
-    () => {
-      if (!transitionComplete) return;
-
-      const tl = gsap.timeline();
-
+            "--c": "0%",
+          })
+          .to(
+            maskRef.current,
+            {
+              duration: 0.5,
+              ease: "power3.inOut",
+              "--a": "60%",
+            },
+            "<+0.25",
+          )
+          .to(
+            maskRef.current,
+            {
+              duration: 1,
+              ease: "power3.inOut",
+              "--b": "0%",
+            },
+            "<+0",
+          );
+      }
       tl.to(layoutRef.current, {
         opacity: 1,
         duration: 0.2,
         ease: "power2.out",
       });
-
-      setTransitionComplete(false);
     },
-    {
-      dependencies: [transitionComplete],
-      scope: pageRef,
-    },
+    { dependencies: [location.pathname], scope: pageRef },
   );
 
   return (
@@ -115,7 +106,7 @@ export default function Layout({ children }) {
           "--c": "100%",
         }}
       >
-        <p className="text-4 uppercase text-white"> {pageName}</p>
+        <p className="text-4 text-white uppercase"> {pageName}</p>
       </div>
       <div
         ref={layoutRef}

@@ -50,7 +50,7 @@ export default function Projects() {
     el.innerHTML = words
       .map(
         (word) =>
-          `<span class="word inline-block whitespace-nowrap overflow-hidden"><span class="inline-block overflow-hidden">${word}&nbsp;</span></span>`,
+          `<span class="word inline-block whitespace-nowrap overflow-hidden"><span class="inline-block overflow-hidden leading-[1.2]">${word}&nbsp;</span></span>`,
       )
       .join("");
     gsap.fromTo(
@@ -87,7 +87,7 @@ export default function Projects() {
           </div>
         </div>
         <div className="flex flex-col items-start justify-end gap-8">
-          <h4 ref={titleRef} className="text-3 leading-none">
+          <h4 ref={titleRef} className="text-3 leading-[0.8]">
             {activeProject.title}
           </h4>
           <Button href={activeProject.url}>SEE MORE</Button>

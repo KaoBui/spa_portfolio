@@ -6,40 +6,37 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
-  const svgRef = useRef(null);
-  const footerRef = useRef(null);
+  const svgRef = useRef();
+  const footerRef = useRef();
   const location = useLocation();
   const pathname = location.pathname;
 
-  useGSAP(
-    () => {
-      if (!footerRef.current || !svgRef.current) return;
+  // useGSAP(
+  //   () => {
+  //     const footerTrigger = gsap.timeline({
+  //       scrollTrigger: {
+  //         trigger: footerRef.current,
+  //         start: "bottom 95%",
+  //         toggleActions: "play reverse play reverse",
+  //         markers: true,
+  //       },
+  //     });
 
-      const footerTrigger = gsap.timeline({
-        scrollTrigger: {
-          trigger: footerRef.current,
-          start: "top 5%",
-          toggleActions: "play reverse play reverse",
-          markers: true,
-          invalidateOnRefresh: true,
-        },
-      });
-
-      footerTrigger.fromTo(
-        svgRef.current.querySelectorAll("path"),
-        {
-          yPercent: 50,
-          ease: "power2.out",
-        },
-        {
-          yPercent: 0,
-          ease: "power2.out",
-          stagger: 0.02,
-        },
-      );
-    },
-    { dependencies: [pathname], scope: footerRef },
-  );
+  //     footerTrigger.fromTo(
+  //       svgRef.current.querySelectorAll("path"),
+  //       {
+  //         yPercent: 50,
+  //         ease: "power2.out",
+  //       },
+  //       {
+  //         yPercent: 0,
+  //         ease: "power2.out",
+  //         stagger: 0.02,
+  //       },
+  //     );
+  //   },
+  //   { dependencies: [pathname], scope: footerRef, revertOnUpdate: true },
+  // );
 
   return (
     <footer
@@ -91,7 +88,6 @@ const Footer = () => {
           </svg>
         </div>
       </div>
-      <div className="absolute bottom-0 left-1/2 h-1 w-1 -translate-x-1/2 transform rounded-full bg-dark"></div>
     </footer>
   );
 };

@@ -40,23 +40,32 @@ export default function BeforeAfterSlider({ beforeImg, afterImg }) {
           />
         </div>
         {/* Toggle buttons */}
-        <div className="mt-6 flex justify-center gap-4">
-          <button
-            className={`rounded-lg px-4 py-2 font-semibold tracking-wide ${
-              !showAfter ? "bg-black text-white" : "bg-light text-white"
-            }`}
-            onClick={() => setShowAfter(false)}
-          >
-            Before
-          </button>
-          <button
-            className={`rounded-lg px-4 py-2 font-semibold tracking-wide ${
-              showAfter ? "bg-black text-white" : "bg-light text-white"
-            }`}
-            onClick={() => setShowAfter(true)}
-          >
-            After
-          </button>
+        <div className="mt-6 flex justify-center">
+          <div className="relative flex gap-4 rounded-full border-8 border-black bg-black p-1">
+            <div
+              className="absolute top-0 left-0 h-full w-1/2 rounded-full bg-gray"
+              style={{
+                transform: !showAfter ? "translateX(0)" : "translateX(100%)",
+                transition: "transform 0.3s ease-out",
+              }}
+            ></div>
+            <button
+              className={`z-10 rounded-lg px-4 py-0  tracking-wide ${
+                !showAfter ? "text-black" : "text-white"
+              }`}
+              onClick={() => setShowAfter(false)}
+            >
+              Before
+            </button>
+            <button
+              className={`z-10 rounded-lg px-4 py-0  tracking-wide ${
+                !showAfter ? "text-white" : "text-black"
+              }`}
+              onClick={() => setShowAfter(true)}
+            >
+              After
+            </button>
+          </div>
         </div>
       </div>
     </div>

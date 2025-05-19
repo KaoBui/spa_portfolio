@@ -50,9 +50,6 @@ export default function Layout({ children }) {
               duration: 0.5,
               ease: "power3.inOut",
               "--c": "50%",
-              onComplete: () => {
-                setTransitionComplete(true);
-              },
             },
             "<+0.25",
           )

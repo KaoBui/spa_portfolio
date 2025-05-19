@@ -2,6 +2,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import PortraitPhoto from "../assets/img/portrait.jpg";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -132,7 +133,7 @@ export default function Hero() {
           >
             <img
               className="rounded-2xl"
-              src="/src/assets/img/portrait.jpg"
+              src={PortraitPhoto}
               alt="Headshot photo"
             />
           </div>

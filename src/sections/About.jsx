@@ -7,15 +7,15 @@ gsap.registerPlugin(ScrollTrigger);
 const paragraphs = [
   {
     text: "I began my journey in marketing. This foundation shaped the way I approach every project: with a focus on users, performance, and results. It’s what drives my need to create work that not only looks good, but works. My marketing background anchors my design thinking in real needs and measurable impact.",
-    tags: ["#SEO", "#paid advertising"],
+    tags: ["SEO", "paid advertising"],
   },
   {
     text: "What started as a love for clean, beautiful PowerPoint slides turned into a growing curiosity for how visuals shape understanding. That curiosity led me to web and UX design, where structure meets emotion, and aesthetics serve purpose. I’m drawn to creating designs that not only look good—but make an impact.",
-    tags: ["*UX Design", "*Web Design"],
+    tags: ["UX Design", "Web Design"],
   },
   {
     text: "Design doesn’t end on the canvas. I’ve always wanted to see ideas through—to bring them to life, exactly as imagined. That’s what drew me to code. It’s a new chapter, but one I’ve fully embraced. Learning to build what I design has opened up a new layer of creativity—one where every interaction, every detail, becomes real.",
-    tags: ["<Web Development/>", "<WordPress/>", "<React/>"],
+    tags: ["Web Development", "WordPress", "React"],
   },
 ];
 
@@ -165,7 +165,7 @@ export default function About() {
       </div>
       <div className="grid grid-cols-12 gap-16">
         <div className="col-start-1 col-end-4"></div>
-        <div className="relative col-start-7 col-end-13 pt-8 lg:pt-16 xl:pt-24">
+        <div className="relative col-start-6 col-end-13 pt-8 lg:pt-16 xl:pt-24">
           <div id="about-description" className="relative">
             {paragraphs.map((paragraph, i) => (
               <div key={i} ref={(el) => (aboutCardRefs.current[i] = el)}>

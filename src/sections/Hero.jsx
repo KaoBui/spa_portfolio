@@ -66,6 +66,26 @@ export default function Hero() {
     { scope: heroRef },
   );
 
+  useGSAP(
+    () => {
+      gsap.to(heroRef.current, {
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+          pin: true,
+          pinSpacing: false,
+        },
+        scale: 0.8,
+        ease: "power1.out",
+        filter: "blur(20px)",
+        opacity: 0,
+      });
+    },
+    { scope: heroRef },
+  );
+
   return (
     <section
       id="hero"

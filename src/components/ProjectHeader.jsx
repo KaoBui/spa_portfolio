@@ -7,6 +7,7 @@ const ProjectHeader = ({ currentProjectId }) => {
   const current = projects.find((p) => p.id === currentProjectId);
   const projectHeaderRef = useRef();
   const projectTitleRef = useRef();
+  const projectInfoRef = useRef();
 
   useGSAP(
     () => {
@@ -35,30 +36,54 @@ const ProjectHeader = ({ currentProjectId }) => {
     { scope: projectHeaderRef },
   );
 
+  useGSAP(
+    () => {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: projectHeaderRef.current,
+            start: "top top",
+            scrub: true,
+            pin: projectInfoRef.current,
+            pinSpacing: false,
+          },
+        })
+        .to(projectInfoRef.current, {
+          opacity: 0,
+          ease: "power2.out",
+          filter: "blur(10px)",
+          scale: 0.9,
+          duration: 1,
+        });
+    },
+    { scope: projectHeaderRef },
+  );
+
   return (
-    <div ref={projectHeaderRef} className="grid grid-cols-12 gap-12 pt-24">
-      <div className="col-start-1 col-end-9 flex flex-col gap-4">
-        <div className="flex gap-2 text-1">
-          <p>({current.year})</p>
-          <p>({current.name})</p>
+    <div ref={projectHeaderRef} className="flex flex-col gap-12 pt-24">
+      <div ref={projectInfoRef} className="grid grid-cols-12 gap-12">
+        <div className="col-start-1 col-end-9 flex flex-col gap-4">
+          <div className="flex gap-2 text-1">
+            <p>({current.year})</p>
+            <p>({current.name})</p>
+          </div>
+          <h3
+            ref={projectTitleRef}
+            className="split-word text-4 leading-[0.8] font-bold tracking-tighter"
+          >
+            {current.title}
+          </h3>
         </div>
-        <h3
-          ref={projectTitleRef}
-          className="split-word text-5 leading-[0.8] font-bold tracking-tighter"
-        >
-          {current.title}
-        </h3>
-      </div>
 
-      <div className="col-start-10 col-end-13 flex flex-wrap content-end items-end justify-end gap-4">
-        {current.tags.map((tag, index) => (
-          <p key={index} className="tag">
-            {tag}
-          </p>
-        ))}
+        <div className="col-start-10 col-end-13 flex flex-wrap content-end items-end justify-end gap-4">
+          {current.tags.map((tag, index) => (
+            <p key={index} className="tag">
+              {tag}
+            </p>
+          ))}
+        </div>
       </div>
-
-      <div className="z-10 col-start-1 col-end-13 h-[75vh] overflow-hidden rounded-xl bg-gray p-12 px-24">
+      <div className="z-10 h-[75vh] overflow-hidden rounded-xl bg-gray p-12 px-24">
         <video
           id={`video-${current.id}`}
           autoPlay

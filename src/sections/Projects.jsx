@@ -1,5 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, use } from "react";
 import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ProjectCard from "../components/ProjectCard";
 import Button from "../components/Button";
@@ -9,11 +10,14 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Projects() {
   const [activeProject, setActiveProject] = useState(projects[0]);
   const cardRefs = useRef([]);
-  const titleRef = useRef(null);
+  const titleRef = useRef();
+  const projectsRef = useRef();
+  const projectImgRef = useRef();
 
-  useEffect(() => {
+  useGSAP(() => {
+    // Pinning logic
     const pinProject = ScrollTrigger.create({
-      trigger: "#projects",
+      trigger: projectsRef.current,
       start: "top top",
       endTrigger: "#project-img-col",
       end: "bottom bottom",
@@ -21,8 +25,14 @@ export default function Projects() {
       scrub: true,
       pinSpacing: false,
     });
+    return () => {
+      pinProject.kill();
+    };
+  });
+
+  useEffect(() => {
     const projectTriggers = [];
-    cardRefs.current.forEach((card, index) => {
+    cardRefs.current?.forEach((card, index) => {
       const trigger = ScrollTrigger.create({
         trigger: card,
         start: "top center",
@@ -34,40 +44,66 @@ export default function Projects() {
       });
       projectTriggers.push(trigger);
     });
-
     return () => {
-      pinProject.kill();
       projectTriggers.forEach((t) => t.kill());
     };
-  }, []);
+  });
 
-  useEffect(() => {
-    if (!titleRef.current) return;
+  useGSAP(
+    () => {
+      if (!titleRef.current) return;
 
-    const el = titleRef.current;
-    const words = activeProject.title.split(" ");
+      const el = titleRef.current;
+      const words = activeProject.title.split(" ");
 
-    el.innerHTML = words
-      .map(
-        (word) =>
-          `<span class="word inline-block whitespace-nowrap overflow-hidden"><span class="inline-block overflow-hidden leading-[1.2]">${word}&nbsp;</span></span>`,
-      )
-      .join("");
-    gsap.fromTo(
-      el.querySelectorAll(".word > span"),
-      { opacity: 0, y: "100%" },
-      {
-        opacity: 1,
-        y: 0,
-        stagger: 0.05,
-        duration: 0.25,
-        ease: "power2.out",
-      },
-    );
-  }, [activeProject]);
+      el.innerHTML = words
+        .map(
+          (word) =>
+            `<span class="word inline-block whitespace-nowrap overflow-hidden"><span class="inline-block overflow-hidden leading-[1.2]">${word}&nbsp;</span></span>`,
+        )
+        .join("");
+      gsap.fromTo(
+        el.querySelectorAll(".word > span"),
+        { opacity: 0, y: "100%" },
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.05,
+          duration: 0.25,
+          ease: "power2.out",
+        },
+      );
+    },
+    { dependencies: [activeProject] },
+  );
+
+  useGSAP(
+    () => {
+      gsap.fromTo(
+        projectImgRef.current,
+        { opacity: 0, },
+        {
+          opacity: 1,
+          ease: "power2.out",
+          duration: 0.5,
+          scrollTrigger: {
+            trigger: projectImgRef.current,
+            start: "top 25%",
+            toggleActions: "play reverse play reverse",
+            markers: true,
+          },
+        },
+      );
+    },
+    { scope: projectImgRef },
+  );
 
   return (
-    <section id="projects" className="relative grid grid-cols-12 gap-16">
+    <section
+      ref={projectsRef}
+      id="projects"
+      className="relative grid grid-cols-12 gap-16"
+    >
       <div
         id="projects-left"
         className="col-start-1 col-end-6 flex h-screen flex-col justify-between py-16"
@@ -95,6 +131,7 @@ export default function Projects() {
       </div>
       <div
         id="project-img-col"
+        ref={projectImgRef}
         className="col-start-7 col-end-13 flex flex-col gap-16"
       >
         {projects.map((project, i) => (

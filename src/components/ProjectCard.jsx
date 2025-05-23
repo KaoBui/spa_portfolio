@@ -21,7 +21,7 @@ const ProjectCard = forwardRef(function ProjectCard(
 
       <div className="flex gap-4">
         {tags.map((tag, index) => (
-          <p key={index} className="text-0 px-2 py-1 rounded-full border-1 border-dark">
+          <p key={index} className="px-2 py-1 rounded-full border-1 border-dark">
             {tag}
           </p>
         ))}

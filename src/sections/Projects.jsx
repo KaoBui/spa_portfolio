@@ -77,26 +77,25 @@ export default function Projects() {
     { dependencies: [activeProject] },
   );
 
-  useGSAP(
-    () => {
-      gsap.fromTo(
-        projectImgRef.current,
-        { opacity: 0, },
-        {
-          opacity: 1,
-          ease: "power2.out",
-          duration: 0.5,
-          scrollTrigger: {
-            trigger: projectImgRef.current,
-            start: "top 25%",
-            toggleActions: "play reverse play reverse",
-            markers: true,
-          },
-        },
-      );
-    },
-    { scope: projectImgRef },
-  );
+  // useGSAP(
+  //   () => {
+  //     gsap.from(
+  //       projectImgRef.current,
+  //       {
+  //         opacity: 0,
+  //         ease: "power2.out",
+  //         duration: 0.5,
+  //         scrollTrigger: {
+  //           trigger: projectImgRef.current,
+  //           start: "top 25%",
+  //           toggleActions: "play reverse play reverse",
+  //           markers: true,
+  //         },
+  //       },
+  //     );
+  //   },
+  //   { scope: projectImgRef },
+  // );
 
   return (
     <section
@@ -132,7 +131,7 @@ export default function Projects() {
       <div
         id="project-img-col"
         ref={projectImgRef}
-        className="col-start-7 col-end-13 flex flex-col gap-16"
+        className="col-start-7 col-end-13 flex flex-col gap-16 opacity-100"
       >
         {projects.map((project, i) => (
           <ProjectCard

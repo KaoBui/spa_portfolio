@@ -46,7 +46,7 @@ export default function Navbar() {
     <>
       <header
         ref={headerRef}
-        className="absolute top-0 left-0 z-[100] w-full px-6 py-6 transition-all md:px-8 lg:px-12 2xl:px-16"
+        className="absolute top-0 left-0 z-[100] w-full px-6 py-6 transition-all md:px-8 lg:px-12 2xl:px-24"
       >
         <nav className="flex items-center justify-between">
           <Link to="/" className="text-lg font-bold">

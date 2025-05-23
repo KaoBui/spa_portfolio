@@ -107,7 +107,7 @@ export default function Layout({ children }) {
       </div>
       <div
         ref={layoutRef}
-        className="layout relative space-y-40 px-6 opacity-0 md:px-8 lg:px-12 2xl:px-16"
+        className="layout relative space-y-40 px-6 opacity-0 md:px-8 lg:px-12 2xl:px-24"
       >
         {children}
       </div>

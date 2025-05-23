@@ -60,7 +60,7 @@ const ProjectHeader = ({ currentProjectId }) => {
   );
 
   return (
-    <div ref={projectHeaderRef} className="flex flex-col gap-12 pt-24">
+    <div ref={projectHeaderRef} className="flex flex-col gap-12 pt-56">
       <div ref={projectInfoRef} className="grid grid-cols-12 gap-12">
         <div className="col-start-1 col-end-9 flex flex-col gap-4">
           <div className="flex gap-2 text-1">
@@ -77,7 +77,7 @@ const ProjectHeader = ({ currentProjectId }) => {
 
         <div className="col-start-10 col-end-13 flex flex-wrap content-end items-end justify-end gap-4">
           {current.tags.map((tag, index) => (
-            <p key={index} className="tag">
+            <p key={index} className="px-2 py-1 rounded-full border-1 border-dark">
               {tag}
             </p>
           ))}
@@ -90,7 +90,7 @@ const ProjectHeader = ({ currentProjectId }) => {
           loop
           muted
           playsInline
-          className="h-full w-full object-cover"
+          className="m-auto h-full object-cover aspect-[16/9]"
         >
           <source src={current.video} type="video/mp4" />
           Your browser does not support the video tag.

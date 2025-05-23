@@ -20,19 +20,19 @@ const projectImages = [TAO1, TAO2, TAO3, TAO4, TAO5];
 const text1 = {
   tag: "brief",
   title: "Strengthen brand presence and credibility through design",
-  text: "The Art Office is a promising startup offering immersive artistic experiences for businesses — but as a young company with a small team, they hadn’t yet invested in a strong visual identity. Their existing website was functional but lacked personality and failed to reflect the creativity at the heart of their work. The goal of this project was to help the founder shape a bold, professional brand presence and a compelling digital platform that would showcase their artistic expertise and strengthen their position within the art world.",
+  texts: ["The Art Office is a promising startup offering immersive artistic experiences for businesses — but as a young company with a small team, they hadn’t yet invested in a strong visual identity. Their existing website was functional but lacked personality and failed to reflect the creativity at the heart of their work. The goal of this project was to help the founder shape a bold, professional brand presence and a compelling digital platform that would showcase their artistic expertise and strengthen their position within the art world."],
 };
 
 const text2 = {
   tag: "solution",
   title: "Creating a website around human stories and connections",
-  text: "I began with the website — the startup’s main point of contact with clients — and approached it as a storytelling platform. By highlighting the founder’s personal connection to art and their network of emerging, independent artists, the website emphasizes authenticity, community, and local creative energy. More than just offering artistic experiences, The Art Office becomes a space for meaningful encounters — where businesses connect not only with art, but with the people behind it.",
+  texts: ["I began with the website — the startup’s main point of contact with clients — and approached it as a storytelling platform. By highlighting the founder’s personal connection to art and their network of emerging, independent artists, the website emphasizes authenticity, community, and local creative energy. More than just offering artistic experiences, The Art Office becomes a space for meaningful encounters — where businesses connect not only with art, but with the people behind it."],
 };
 
 const text3 = {
   tag: "design",
   title: "A visual language inspired by the art world",
-  text: "The visual design draws inspiration from contemporary art spaces — clean, structured, yet expressive. The layout is open with carefully framed images that echo the feel of walking through an art gallery. Subtle straight lines in the background reference a blank canvas, hinting at creative potential while keeping the overall interface minimal. The typography is slim and modern, adding a sense of sophistication. The result is a refined visual system that lets the artwork and stories take center stage.",
+  texts: ["The visual design draws inspiration from contemporary art spaces — clean, structured, yet expressive. The layout is open with carefully framed images that echo the feel of walking through an art gallery. Subtle straight lines in the background reference a blank canvas, hinting at creative potential while keeping the overall interface minimal. The typography is slim and modern, adding a sense of sophistication. The result is a refined visual system that lets the artwork and stories take center stage."],
 };
 
 export default function TheArtOffice() {
@@ -46,10 +46,10 @@ export default function TheArtOffice() {
         <BeforeAfterSlider beforeImg={Before} afterImg={After} />
         <ProjectText textID={text2}></ProjectText>
         <div className="grid grid-cols-12 gap-12">
-          <div className="col-start-1 col-end-7 rounded-xl bg-gray">
-            <img src={OrangeMobile} alt="" />
+          <div className="col-start-1 col-end-7 overflow-hidden rounded-xl bg-gray max-h-screen">
+            <img src="https://kaobui.s3.eu-west-3.amazonaws.com/tao-image.jpg" alt="" />
           </div>
-          <div className="col-start-7 col-end-13 overflow-hidden rounded-xl bg-gray">
+          <div className="col-start-7 col-end-13 overflow-hidden rounded-xl bg-gray max-h-screen">
             <img className="h-full object-cover" src={TAOMockup} alt="" />
           </div>
         </div>

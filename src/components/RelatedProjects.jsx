@@ -10,7 +10,6 @@ const RelatedProjects = ({ currentProjectId }) => {
         <h2 className="text-4 leading-none font-bold tracking-tighter">
           Related projects
         </h2>
-        <p className="text-2 text-light">Check out my other projects :</p>
       </div>
       <div className="grid gap-12 md:grid-cols-2">
         {related.map((project) => (
@@ -20,7 +19,7 @@ const RelatedProjects = ({ currentProjectId }) => {
               src={project.imageSrc}
               alt={`${project.name} mockup`}
             />
-            <h3 className="pt-4 text-light">{project.name}</h3>
+            <h3 className="text-1 pt-6 text-light">{project.name}</h3>
             <p className="text-2 leading-none">{project.title}</p>
             <Button className="mt-4" href={project.url}>SEE MORE</Button>
           </div>

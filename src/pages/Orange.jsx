@@ -8,12 +8,12 @@ import ProjectText from "../components/ProjectText";
 const text1 = {
   tag: "brief",
   title: "Help a coworking space reinforce their presence online",
-  text: "Orange Space is a premium coworking space in Hanoi, Vietnam. Their mission is to offer an all-in-one office space service with clean aesthetics and efficiency. They needed a website that reflected their identity as a modern, productive workspace",
+  texts: ["Orange Space is a premium coworking space in Hanoi, Vietnam. Their mission is to offer an all-in-one office space service with clean aesthetics and efficiency. They needed a website that reflected their identity as a modern, productive workspace"],
 };
 const text2 = {
   tag: "solution",
   title: "More than a modern website",
-  text: "Their request was straightforward: a beautiful website. However, as I explored their needs, I realized there was an opportunity to create something far more impactful. The project was then about helping Orange Space build a digital identity that aligned with their core values and business goals. I then crafted a website that captured their identity at the same time seo-optimized, couppled with a SEO strategy.",
+  texts: ["Their request was straightforward: a beautiful website. However, as I explored their needs, I realized there was an opportunity to create something far more impactful. The project was then about helping Orange Space build a digital identity that aligned with their core values and business goals. I then crafted a website that captured their identity at the same time seo-optimized, couppled with a SEO strategy."],
 };
 // Project Assets
 import OrangeMobile from "../assets/img/orange-mobile-mockup.png";

@@ -58,7 +58,7 @@ const IntroAnimation = () => {
   return (
     <div
       ref={loaderRef}
-      className="loader fixed top-0 left-0 z-[1000] flex h-screen w-full items-center justify-center bg-black text-white"
+      className="loader fixed top-0 left-0 z-[1000] hidden h-screen w-full items-center justify-center bg-black text-white md:flex"
       style={{
         "--c": "0%",
         maskImage:

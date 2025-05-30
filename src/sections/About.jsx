@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const paragraphs = [
   {
-    text: "I began my journey in marketing. This foundation shaped the way I approach every project: with a focus on users, performance, and results. It’s what drives my need to create work that not only looks good, but works. My marketing background anchors my design thinking in real needs and measurable impact.",
+    text: "I began my journey in marketing. This foundation shaped the way I approach every project: with a focus on users, performance, and results. It’s what drives my need to create work that not only looks good, but works.",
     tags: ["SEO", "paid advertising"],
   },
   {
@@ -24,20 +24,18 @@ export default function About() {
   const titleSpanRefs = useRef([]);
   const endSpacerRef = useRef(null);
 
-
   useEffect(() => {
     const paragraphs = gsap.utils.toArray(".about-text");
     const aboutTitle = document.getElementById("about-title");
-    const aboutTitlleWrapper = document.getElementById("about-title-wrapper");
+    const aboutTitleWrapper = document.getElementById("about-title-wrapper");
     const lastAboutTitle = paragraphs[paragraphs.length - 1];
-
 
     const pinAbout = ScrollTrigger.create({
       trigger: "#about",
       start: "top top",
       endTrigger: "#about-end",
       end: "bottom bottom",
-      pin: aboutTitlleWrapper,
+      pin: aboutTitleWrapper,
       scrub: true,
       pinSpacing: false,
       id: "about-pin",
@@ -65,10 +63,11 @@ export default function About() {
     const highlightSpan = (index) => {
       titleSpanRefs.current.forEach((span, i) => {
         gsap.to(span, {
-          opacity: i === index ? 1 : 0.12,
+          opacity: i === index ? 1 : 0.2,
+          filter: i === index ? "none" : "blur(6px)",
           scale: i === index ? 1.1 : 0.9,
           transformOrigin: "left center",
-          duration: 0.3,
+          duration: 0.5,
           ease: "power2.out",
         });
       });
@@ -80,6 +79,7 @@ export default function About() {
           opacity: 1,
           scale: 1,
           duration: 0.3,
+          filter: "none",
           ease: "power2.out",
         });
       });
@@ -108,7 +108,7 @@ export default function About() {
 
       tl.fromTo(
         el,
-        { opacity: 0.5, yPercent: 10 },
+        { opacity: 0, yPercent: 10 },
         { opacity: 1, yPercent: 0, ease: "power2.out" },
       );
 
@@ -121,17 +121,17 @@ export default function About() {
 
     requestAnimationFrame(() => {
       let totalPinHeight = 0;
-    
+
       aboutCardRefs.current.forEach((el) => {
         const scrollId = el.dataset.scrollId;
         const trigger = ScrollTrigger.getById(scrollId);
-    
+
         if (trigger) {
           const height = trigger.end - trigger.start;
           totalPinHeight += height;
         }
       });
-    
+
       if (endSpacerRef.current) {
         endSpacerRef.current.style.height = `${totalPinHeight}px`;
       }
@@ -144,7 +144,7 @@ export default function About() {
     };
   }, []);
   return (
-    <section id="about" className="relative grid grid-rows-[1fr_auto]">
+    <section id="about" className="relative grid-rows-[1fr_auto] md:grid">
       <div
         id="about-title-wrapper"
         className="col-span-full flex gap-1 lg:py-12"
@@ -152,7 +152,7 @@ export default function About() {
         <p className="text-2 font-bold">2</p>
         <h2
           id="about-title"
-          className="flex flex-col gap-8 text-5 leading-none font-bold tracking-tighter"
+          className="flex flex-col gap-8 text-3 leading-none font-bold tracking-tighter md:text-5"
         >
           {["Rooted in marketing,", "shaped by design,", "driven by code."].map(
             (line, i) => (
@@ -163,7 +163,7 @@ export default function About() {
           )}
         </h2>
       </div>
-      <div className="grid grid-cols-12 gap-16">
+      <div className="grid-cols-12 gap-16 md:grid">
         <div className="col-start-1 col-end-4"></div>
         <div className="relative col-start-6 col-end-13 pt-8 lg:pt-16 xl:pt-24">
           <div id="about-description" className="relative">
@@ -173,7 +173,11 @@ export default function About() {
               </div>
             ))}
           </div>
-          <div ref={endSpacerRef} id="about-end" className="h-[250vh] absolute"></div>
+          <div
+            ref={endSpacerRef}
+            id="about-end"
+            className="absolute h-[250vh]"
+          ></div>
         </div>
       </div>
     </section>

@@ -62,8 +62,9 @@ export default function Hero() {
           },
           "<+0.2",
         );
-        tl.to(
+        tl.fromTo(
           locationDivs,
+          { clipPath: "inset(0 100% 0 0)" },
           {
             clipPath: "inset(0 0% 0 0)",
             duration: 0.6,
@@ -71,8 +72,9 @@ export default function Hero() {
           },
           "<+0.1",
         );
-        tl.to(
+        tl.fromTo(
           presentation,
+          { clipPath: "inset(0 100% 0 0)" },
           {
             clipPath: "inset(0 0% 0 0)",
             duration: 0.6,
@@ -114,30 +116,30 @@ export default function Hero() {
       ref={heroRef}
       className="flex h-screen flex-col justify-end gap-20 py-6 text-center md:py-8 lg:py-12 2xl:py-16"
     >
-      <div className="grid grid-cols-12 gap-0">
+      <div className="flex h-full grid-cols-12 flex-col-reverse justify-between gap-0 md:grid md:h-auto">
         <div className="col-start-1 col-end-9 flex flex-col justify-between gap-12 text-left">
           <div className="location flex gap-24 text-1">
             <div
               className="flex flex-col items-start"
-              style={{ clipPath: "inset(0 100% 0 0)" }}
+              style={{ clipPath: "inset(0 0% 0 0)" }}
             >
               <p className="text-0 text-light">From</p>
               <p>Hanoi, Vietnam</p>
             </div>
             <div
               className="flex flex-col items-start"
-              style={{ clipPath: "inset(0 100% 0 0)" }}
+              style={{ clipPath: "inset(0 0% 0 0)" }}
             >
               <p className="text-0 text-light">Currently in</p>
               <p>Lyon, France</p>
             </div>
           </div>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-16">
             <h4
               ref={roleTitleRef}
-              className="flex gap-12 text-left text-3 text-light"
+              className="flex gap-6 text-left text-1 text-dark md:text-3"
             >
-              marketer designer developper
+              Designer & Developper
             </h4>
             <h1 ref={heroTitleRef} className="text-left">
               <svg viewBox="0 0 872 216" xmlns="http://www.w3.org/2000/svg">
@@ -176,23 +178,24 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="col-start-10 col-end-13 flex flex-col justify-end gap-4">
+        <div className="col-start-10 col-end-13 flex flex-col items-end justify-end gap-8">
           <div
             ref={imgRef}
             style={{ clipPath: "inset(0 0 0% 0)" }}
-            className="img-container h-full overflow-hidden"
+            className="img-container aspect-square max-h-[20vh] overflow-hidden md:max-h-full"
           >
             <img
-              className="rounded-2xl h-full object-cover grayscale"
+              className="h-full w-full rounded-2xl object-cover grayscale"
               src={PortraitPhoto}
               alt="Headshot photo"
             />
           </div>
           <p
-            className="presentation text-left text-1 text-black"
-            style={{ clipPath: "inset(0 100% 0 0)" }}
+            className="presentation text-right text-1 leading-[1.4] text-black md:text-left md:text-1"
+            style={{ clipPath: "inset(0 0% 0 0)" }}
           >
-            I refuse to believe marketing, design, and code need separate people.
+            I refuse to believe marketing, design, and code need separate
+            people.
           </p>
         </div>
       </div>

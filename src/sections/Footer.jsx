@@ -46,7 +46,7 @@ const Footer = () => {
     >
       <div className="flex flex-col items-start gap-0">
         <p className="text-2">Let's start creating</p>
-        <p className="text-5 leading-none font-bold tracking-tighter">
+        <p className="text-3 md:text-5 leading-none font-bold tracking-tighter">
           contact<br></br>@kaobui.com
         </p>
       </div>

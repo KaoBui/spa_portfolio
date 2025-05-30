@@ -19,7 +19,7 @@ export default function Projects() {
     const pinProject = ScrollTrigger.create({
       trigger: projectsRef.current,
       start: "top top",
-      endTrigger: "#project-img-col",
+      endTrigger: "#project-right",
       end: "bottom bottom",
       pin: "#projects-left",
       scrub: true,
@@ -101,21 +101,21 @@ export default function Projects() {
     <section
       ref={projectsRef}
       id="projects"
-      className="relative grid grid-cols-12 gap-16"
+      className="relative md:grid grid-cols-12 gap-16"
     >
       <div
         id="projects-left"
-        className="col-start-1 col-end-6 flex h-screen flex-col justify-between py-16"
+        className="col-span-full md:col-start-1 md:col-end-6 flex h-screen flex-col justify-between py-16"
       >
         <div className="flex flex-col gap-12">
           <div className="flex gap-1">
             <p className="text-2 font-bold">1</p>
-            <h2 className="text-5 leading-[0.8] font-bold tracking-tighter">
+            <h2 className="text-3 md:text-5 leading-[0.8] font-bold tracking-tighter">
               Selected works
             </h2>
           </div>
           <div className="flex flex-col gap-2">
-            <p key={activeProject.id} className="text-1">
+            <p key={activeProject.id} className="text-2">
               <span className="inline-block w-[40px]">#{activeProject.id}</span>{" "}
               {activeProject.name}
             </p>
@@ -129,9 +129,9 @@ export default function Projects() {
         </div>
       </div>
       <div
-        id="project-img-col"
+        id="project-right"
         ref={projectImgRef}
-        className="col-start-7 col-end-13 flex flex-col gap-16 opacity-100"
+        className="col-span-full md:col-start-7 md:col-end-13 flex flex-col gap-16 opacity-100"
       >
         {projects.map((project, i) => (
           <ProjectCard

@@ -16,10 +16,11 @@ export const projects = [
   {
     id: 2,
     name: "Adecco France",
-    title: "Enhancing job search experience by redesigning platform homepage",
+    title: "Redesigning homepage to enhance job search experience.",
     url: "/projects/adecco",
     imageSrc: AdeccoMockup,
-    tags: ["UX Research", "Web Development", "Accessibility"],
+    tags: ["UX Research", "Web Design", "Web Development"],
+    video: "https://kaobui.s3.eu-west-3.amazonaws.com/adecco-video.mp4",
     year: 2024,
   },
   {

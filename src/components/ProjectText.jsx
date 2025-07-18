@@ -41,7 +41,7 @@ const ProjectText = ({ textID }) => {
   return (
     <div ref={projectTextRef} className="grid grid-cols-12 gap-12">
       <div className="col-start-1 col-end-7 flex flex-col items-start justify-end gap-2">
-        <p className="text-center font-bold text-black text-light uppercase">
+        <p className="text-center text-0 font-bold text-black text-light uppercase">
           ({textID.tag})
         </p>
         <h2 className="text-3 leading-[0.8]"> {textID.title}</h2>
@@ -58,3 +58,4 @@ const ProjectText = ({ textID }) => {
 };
 
 export default ProjectText;
+

@@ -23,7 +23,12 @@
 @theme {
   --color-light: #4f4f4f;
   --color-dark: #080807;
-  --color-gray: #d8d8d8;
+  --color-gray: #d9d9d9;
+  --color-gray-5: #E0E0E0;
+  --color-gray-4: #bdbdbd;
+  --color-gray-3: #828282;
+  --color-gray-2: #4F4F4F;
+  --color-gray-1: #333333;
   --text-0: clamp(0.62rem, 0.12vi + 0.59rem, 0.77rem);
   --text-1: clamp(1rem, 0.19vi + 0.95rem, 1.25rem);
   --text-2: clamp(1.62rem, 0.31vi + 1.54rem, 2.02rem);
@@ -42,7 +47,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   --background: #e0e0e0;
-  background-color: var(--background);
+  background-color: var(--color-gray-5);
   color: var(--text-dark);
 }
 

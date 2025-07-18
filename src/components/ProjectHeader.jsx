@@ -1,5 +1,5 @@
 import { projects } from "../projectsInfo";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -8,6 +8,21 @@ const ProjectHeader = ({ currentProjectId }) => {
   const projectHeaderRef = useRef();
   const projectTitleRef = useRef();
   const projectInfoRef = useRef();
+  const videoRef = useRef();
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  const handleTogglePlay = () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (video.paused) {
+      video.play();
+      setIsPlaying(true);
+    } else {
+      video.pause();
+      setIsPlaying(false);
+    }
+  };
 
   useGSAP(
     () => {
@@ -59,6 +74,39 @@ const ProjectHeader = ({ currentProjectId }) => {
     { scope: projectHeaderRef },
   );
 
+  const PlayIcon = () => (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      id="Play--Streamline-Iconoir"
+      height="24"
+      width="24"
+    >
+      <desc>Play Streamline Icon: https://streamlinehq.com</desc>
+      <path
+        d="M6.90588 4.53682C6.50592 4.2998 6 4.58808 6 5.05299V18.947c0 0.4649 0.50592 0.7532 0.90588 0.5162l11.72312 -6.947c0.3921 -0.2324 0.3921 -0.8 0 -1.0324L6.90588 4.53682Z"
+        fill="#000000"
+        stroke="#000000"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></path>
+    </svg>
+  );
+
+  const PauseIcon = () => (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      height="24"
+      width="24"
+    >
+      <path d="M6 4H10V20H6V4ZM14 4H18V20H14V4Z" fill="#000000" />
+    </svg>
+  );
+
   return (
     <div ref={projectHeaderRef} className="flex flex-col gap-12 pt-56">
       <div ref={projectInfoRef} className="grid grid-cols-12 gap-12">
@@ -77,24 +125,34 @@ const ProjectHeader = ({ currentProjectId }) => {
 
         <div className="col-start-10 col-end-13 flex flex-wrap content-end items-end justify-end gap-4">
           {current.tags.map((tag, index) => (
-            <p key={index} className="px-2 py-1 rounded-full border-1 border-dark">
+            <p
+              key={index}
+              className="rounded-full border-1 border-dark px-2 py-1"
+            >
               {tag}
             </p>
           ))}
         </div>
       </div>
-      <div className="z-10 h-[75vh] overflow-hidden rounded-xl bg-gray p-12 px-24">
+      <div className="relative z-10 h-[75vh] overflow-hidden rounded-xl bg-gray p-12 px-24">
         <video
+          ref={videoRef}
           id={`video-${current.id}`}
           autoPlay
           loop
           muted
           playsInline
-          className="m-auto h-full object-cover aspect-[16/9]"
+          className="m-auto aspect-[16/9] h-full object-cover"
         >
           <source src={current.video} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+        <button
+          onClick={handleTogglePlay}
+          className="absolute right-6 bottom-6 rounded-md bg-white/80 px-4 py-2 text-black backdrop-blur-md transition hover:bg-white"
+        >
+          {isPlaying ? <PauseIcon /> : <PlayIcon />}
+        </button>
       </div>
     </div>
   );

@@ -105,7 +105,7 @@ export default function Projects() {
     >
       <div
         id="projects-left"
-        className="col-span-full md:col-start-1 md:col-end-6 flex h-screen flex-col justify-between py-16"
+        className="col-span-full md:col-start-1 md:col-end-7 flex h-screen flex-col justify-between py-16"
       >
         <div className="flex flex-col gap-12">
           <div className="flex gap-1">
@@ -115,7 +115,7 @@ export default function Projects() {
             </h2>
           </div>
           <div className="flex flex-col gap-2">
-            <p key={activeProject.id} className="text-2">
+            <p key={activeProject.id} className="text-1 2xl:text-2">
               <span className="inline-block w-[40px]">#{activeProject.id}</span>{" "}
               {activeProject.name}
             </p>

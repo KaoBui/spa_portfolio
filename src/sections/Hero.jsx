@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import PortraitPhoto from "../assets/img/portrait.jpg";
+import PortraitTest from "../assets/img/test 4.png";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -185,8 +186,8 @@ export default function Hero() {
             className="img-container aspect-square max-h-[20vh] overflow-hidden md:max-h-full"
           >
             <img
-              className="h-full w-full rounded-2xl object-cover grayscale"
-              src={PortraitPhoto}
+              className="h-full w-full rounded-2xl object-cover object-top grayscale"
+              src={PortraitTest}
               alt="Headshot photo"
             />
           </div>

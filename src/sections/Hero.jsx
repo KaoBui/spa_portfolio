@@ -115,7 +115,7 @@ export default function Hero() {
     <section
       id="hero"
       ref={heroRef}
-      className="flex h-screen flex-col justify-end gap-20 py-6 text-center md:py-8 lg:py-12 2xl:py-16"
+      className="flex h-screen flex-col justify-end gap-20 py-6 text-center md:py-8 lg:py-12 2xl:py-12 3xl:py-16"
     >
       <div className="flex h-full grid-cols-12 flex-col-reverse justify-between gap-0 md:grid md:h-auto">
         <div className="col-start-1 col-end-9 flex flex-col justify-between gap-12 text-left">

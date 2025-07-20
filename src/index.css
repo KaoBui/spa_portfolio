@@ -35,6 +35,7 @@
   --text-3: clamp(2.61rem, 0.5vi + 2.49rem, 3.27rem);
   --text-4: clamp(4.23rem, 0.81vi + 4.02rem, 5.29rem);
   --text-5: clamp(6.84rem, 1.32vi + 6.51rem, 8.57rem);
+  --breakpoint-3xl: 120rem;
 }
 
 :root {

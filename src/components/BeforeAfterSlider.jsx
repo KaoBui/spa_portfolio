@@ -46,7 +46,7 @@ export default function BeforeAfterSlider({ beforeImg, afterImg }) {
               className="absolute top-0 left-0 h-full w-1/2 rounded-full bg-gray"
               style={{
                 transform: !showAfter ? "translateX(0)" : "translateX(100%)",
-                transition: "transform 0.3s ease-out",
+                transition: "transform 0.3s ease -out",
               }}
             ></div>
             <button

@@ -15,7 +15,6 @@ function App() {
     <>
       <IntroAnimation />
       <div className="texture-overlay" />
-
       <Navbar />
       <main>
         <ScrollToTop />

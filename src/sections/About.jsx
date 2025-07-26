@@ -154,7 +154,7 @@ export default function About() {
           id="about-title"
           className="flex flex-col gap-8 text-3 leading-none font-bold tracking-tighter md:text-5"
         >
-          {["Rooted in marketing,", "shaped by design,", "driven by code."].map(
+          {["Marketing,", "Design,", "Development."].map(
             (line, i) => (
               <span key={i} ref={(el) => (titleSpanRefs.current[i] = el)}>
                 {line}
@@ -164,7 +164,6 @@ export default function About() {
         </h2>
       </div>
       <div className="grid-cols-12 gap-16 md:grid">
-        <div className="col-start-1 col-end-4"></div>
         <div className="relative col-start-6 col-end-13 pt-8 lg:pt-16 xl:pt-24">
           <div id="about-description" className="relative">
             {paragraphs.map((paragraph, i) => (

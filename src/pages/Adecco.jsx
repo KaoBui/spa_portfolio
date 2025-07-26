@@ -36,7 +36,7 @@ const text3 = {
 export default function Adecco() {
   const currentProjectId = 2;
   const resultsRef = useRef();
-  
+
   useGSAP(
     () => {
       const textEl = resultsRef.current.querySelector("h2");
@@ -156,12 +156,12 @@ export default function Adecco() {
           <div className="col-start-7 col-end-13 flex flex-col justify-end gap-4"></div>
           <div className="col-start-1 col-end-7 flex flex-col justify-start gap-4">
             <p className="text-1 text-light">
-              I restructured the homepage by focusing on clarity, simplicity,
-              and user intent. Each section was redesigned using UX principles
-              and real insights. The new layout prioritizes key actions, reduces
-              cognitive load, and offers a cleaner, more accessible, and
-              visually modern experience that better guides users through the
-              site.
+              To measure the impact of the redesign, I analyzed behavioral data
+              one year after launch, focusing on new user segments. The
+              refreshed homepage showed a clear boost in engagement, especially
+              in key areas like the job search bar, blog, and job category
+              sections. These improvements demonstrate how the new design
+              successfully guided users toward important actions.
             </p>
           </div>
           <div className="col-start-7 col-end-13 flex flex-col gap-6">
@@ -169,29 +169,33 @@ export default function Adecco() {
               <div className="flex flex-col rounded-xl bg-gray p-6">
                 <p className="text-3 leading-[1.2]">3x</p>
                 <p className="text-1">
-                  scroll percentage till the end of the page
+                  users reaching the end of the page <em>(desktop)</em>
                 </p>
               </div>
               <div className="flex flex-col rounded-xl bg-gray p-6">
-                <p className="text-3 leading-[1.2]">3x</p>
-                <p className="text-1">clics in the blog section</p>
+                <p className="text-3 leading-[1.2]">3.2x</p>
+                <p className="text-1">
+                  clicks in the Blog section <em>(all devices)</em>{" "}
+                </p>
               </div>
               <div className="flex flex-col rounded-xl bg-gray p-6">
                 <p className="text-3 leading-[1.2]">+68%</p>
-                <p className="text-1">clics in the Features section</p>
+                <p className="text-1">
+                  clicks in the Featured Tools section <em>(desktop)</em>
+                </p>
               </div>
             </div>
             <div className="flex gap-6">
               <div className="flex flex-col rounded-xl bg-gray p-6">
                 <p className="text-3 leading-[1.2]">+20%</p>
                 <p className="text-1">
-                  uses of job search bar in new users segments
+                  job search bar usage <em>(all devices)</em>
                 </p>
               </div>
               <div className="flex flex-col rounded-xl bg-gray p-6">
-                <p className="text-3 leading-[1.2]">3x</p>
+                <p className="text-3 leading-[1.2]">2.8x</p>
                 <p className="text-1">
-                  interaction rate for the “Job Category” section
+                  interaction rate in the Job Category section <em>(all devices)</em>
                 </p>
               </div>
             </div>

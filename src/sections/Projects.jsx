@@ -48,7 +48,6 @@ export default function Projects() {
           end: () => "+=" + totalWidth,
           scrub: true,
           pin: projectsRef.current, // pin left column
-          markers: true, // for debugging
           pinSpacing: true, // no extra space after pinning
         },
       });

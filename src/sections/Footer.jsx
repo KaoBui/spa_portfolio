@@ -51,16 +51,13 @@ const Footer = () => {
           contact<br></br>@kaobui.com
         </p>
       </div>
-      <div className="relative flex h-[25vh] w-full items-end justify-between overflow-hidden py-4">
+      <div className="relative flex h-[25vh] w-full items-end justify-between lg:overflow-hidden py-4">
         <p>&copy; {new Date().getFullYear()} Kao Bui.</p>
         <div className="flex items-center gap-2">
-        
           <CurrentTime />
           <p> Lyon, France</p>
         </div>
-
-        <p>Designed and developped by Kao</p>
-        <div className="absolute bottom-0 left-0 -z-1 h-[200px] w-full overflow-hidden">
+        <div className="absolute bottom-0 left-0 -z-1 lg:h-[200px] w-[200%] lg:w-full overflow-hidden">
           <svg
             ref={svgRef}
             className="opacity-[0.15]"

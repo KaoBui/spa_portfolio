@@ -1,6 +1,7 @@
 import OrangeMockup from "./assets/img/orange-mockup.jpg";
 import AdeccoMockup from "./assets/img/adecco-mockup.jpg";
 import ArtOfficeMockup from "./assets/img/tao-mockup.jpg";
+import FakeOfficeMockup from "./assets/img/fakeoff-mockup.jpg";
 
 export const projects = [
   {
@@ -32,5 +33,15 @@ export const projects = [
     tags: ["Web Design", "Branding"],
     video: "https://kaobui.s3.eu-west-3.amazonaws.com/tao-video.mp4",
     year: 2024,
+  },
+  {
+    id: 4,
+    name: "Fake Off",
+    title: "Improving the web experience for media education",
+    url: "/projects/fake-off",
+    imageSrc: FakeOfficeMockup,
+    tags: ["Web Design", "Branding"],
+    video: "https://kaobui.s3.eu-west-3.amazonaws.com/fakeoff-video.mp4",
+    year: 2025,
   },
 ];

@@ -13,21 +13,50 @@ export default function Projects() {
   const titleRef = useRef();
   const projectsRef = useRef();
   const projectImgRef = useRef();
+  const projectLeftRef = useRef();
 
   useGSAP(() => {
-    // Pinning logic
-    const pinProject = ScrollTrigger.create({
-      trigger: projectsRef.current,
-      start: "top top",
-      endTrigger: "#project-right",
-      end: "bottom bottom",
-      pin: "#projects-left",
-      scrub: true,
-      pinSpacing: false,
+    const mm = gsap.matchMedia();
+
+    // For bigger screens, pin the left section
+    mm.add("(min-width: 1024px)", () => {
+      const pinProject = ScrollTrigger.create({
+        trigger: projectsRef.current,
+        start: "top top",
+        endTrigger: projectImgRef.current,
+        end: "bottom bottom",
+        pin: projectLeftRef.current,
+        scrub: true,
+        pinSpacing: false,
+      });
+      return () => {
+        pinProject.kill();
+      };
     });
-    return () => {
-      pinProject.kill();
-    };
+
+    // For smaller screens, create a horizontal scroll effect
+    mm.add("(max-width: 1023px)", () => {
+      const totalWidth =
+        projectImgRef.current.scrollWidth - projectImgRef.current.offsetWidth;
+
+      const sideScroll = gsap.to(cardRefs.current, {
+        x: () => -totalWidth, // move left
+        ease: "none",
+        scrollTrigger: {
+          trigger: projectsRef.current, // the wrapper containing the cards
+          start: "top top",
+          end: () => "+=" + totalWidth,
+          scrub: true,
+          pin: projectsRef.current, // pin left column
+          markers: true, // for debugging
+          pinSpacing: true, // no extra space after pinning
+        },
+      });
+      return () => {
+        sideScroll.kill();
+      };
+    });
+    return () => mm.revert();
   });
 
   useEffect(() => {
@@ -101,16 +130,16 @@ export default function Projects() {
     <section
       ref={projectsRef}
       id="projects"
-      className="relative md:grid grid-cols-12 gap-16"
+      className="relative grid-cols-12 gap-16 lg:grid"
     >
       <div
-        id="projects-left"
-        className="col-span-full md:col-start-1 md:col-end-7 flex h-screen flex-col justify-between py-6 md:py-8 lg:py-12 2xl:py-12 3xl:py-16"
+        ref={projectLeftRef}
+        className="col-span-full col-start-1 col-end-7 flex flex-col gap-4 py-6 md:h-screen md:justify-between md:py-8 lg:py-12 2xl:py-12 3xl:py-16"
       >
         <div className="flex flex-col gap-12">
-          <div className="flex gap-1">
+          <div className="flex flex-col gap-1 md:flex-row">
             <p className="text-2 font-bold">1</p>
-            <h2 className="text-3 md:text-5 leading-[0.8] font-bold tracking-tighter">
+            <h2 className="text-4 leading-[0.8] font-bold tracking-tighter md:text-5">
               Selected works
             </h2>
           </div>
@@ -121,8 +150,8 @@ export default function Projects() {
             </p>
           </div>
         </div>
-        <div className="flex flex-col items-start justify-end gap-8">
-          <h4 ref={titleRef} className="text-2 2xl:text-3 leading-[0.8]">
+        <div className="hidden flex-col items-start justify-end gap-8 lg:flex">
+          <h4 ref={titleRef} className="text-2 leading-[0.8] 2xl:text-3">
             {activeProject.title}
           </h4>
           <Button href={activeProject.url}>SEE MORE</Button>
@@ -131,7 +160,7 @@ export default function Projects() {
       <div
         id="project-right"
         ref={projectImgRef}
-        className="col-span-full md:col-start-7 md:col-end-13 flex flex-col gap-16 opacity-100"
+        className="col-span-full flex gap-12 overflow-hidden opacity-100 md:gap-16 lg:col-start-7 lg:col-end-13 lg:flex-col"
       >
         {projects.map((project, i) => (
           <ProjectCard

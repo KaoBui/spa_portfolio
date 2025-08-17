@@ -3,7 +3,6 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import PortraitPhoto from "../assets/img/portrait.jpg";
-import PortraitTest from "../assets/img/test 4.png";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -117,28 +116,28 @@ export default function Hero() {
       ref={heroRef}
       className="flex h-screen flex-col justify-end gap-20 py-6 text-center md:py-8 lg:py-12 2xl:py-12 3xl:py-16"
     >
-      <div className="flex h-full grid-cols-12 flex-col-reverse justify-between gap-0 md:grid md:h-auto">
-        <div className="col-start-1 col-end-9 flex flex-col justify-between gap-12 text-left">
+      <div className="flex h-full grid-cols-12 flex-col-reverse items-end justify-between gap-0 md:grid md:h-auto">
+        <div className="col-start-1 col-end-9 flex w-full flex-col justify-between gap-12 text-left">
           <div className="location flex gap-24 text-1">
             <div
               className="flex flex-col items-start"
               style={{ clipPath: "inset(0 0% 0 0)" }}
             >
               <p className="text-0 text-light">From</p>
-              <p>Hanoi, Vietnam</p>
+              <p className="text-1">Hanoi, Vietnam</p>
             </div>
             <div
               className="flex flex-col items-start"
               style={{ clipPath: "inset(0 0% 0 0)" }}
             >
               <p className="text-0 text-light">Currently in</p>
-              <p>Lyon, France</p>
+              <p className="text-1">Lyon, France</p>
             </div>
           </div>
-          <div className="flex flex-col gap-16">
+          <div className="flex flex-col gap-8 lg:gap-12 2xl:gap-12">
             <h4
               ref={roleTitleRef}
-              className="flex gap-6 text-left text-1 text-dark md:text-3"
+              className="flex gap-6 text-left text-2 text-dark md:text-3"
             >
               Designer & Developper
             </h4>
@@ -178,8 +177,7 @@ export default function Hero() {
             </h1>
           </div>
         </div>
-
-        <div className="col-start-10 col-end-13 flex flex-col items-end justify-end gap-8">
+        <div className="col-start-10 col-end-13 flex w-2/3 flex-col items-end justify-end gap-8 pt-6 md:w-auto md:pt-0">
           <div
             ref={imgRef}
             style={{ clipPath: "inset(0 0 0% 0)" }}
@@ -187,7 +185,7 @@ export default function Hero() {
           >
             <img
               className="h-full w-full rounded-2xl object-cover object-top grayscale"
-              src={PortraitTest}
+              src={PortraitPhoto}
               alt="Headshot photo"
             />
           </div>

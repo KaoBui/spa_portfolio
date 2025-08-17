@@ -3,6 +3,7 @@ import { useLocation } from "react-router";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import CurrentTime from "../components/CurrentTime";
 gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
@@ -46,16 +47,18 @@ const Footer = () => {
     >
       <div className="flex flex-col items-start gap-0">
         <p className="text-2">Let's start creating</p>
-        <p className="text-3 md:text-5 leading-none font-bold tracking-tighter">
+        <p className="text-3 leading-none font-bold tracking-tighter md:text-5">
           contact<br></br>@kaobui.com
         </p>
       </div>
-      <div className="relative flex h-[25vh] w-full items-end justify-between overflow-hidden py-4 text-1">
-        <p>
-          &copy; {new Date().getFullYear()} Your Portfolio Name. All rights
-          reserved.
-        </p>
-        <p>Lyon, France</p>
+      <div className="relative flex h-[25vh] w-full items-end justify-between overflow-hidden py-4">
+        <p>&copy; {new Date().getFullYear()} Kao Bui.</p>
+        <div className="flex items-center gap-2">
+        
+          <CurrentTime />
+          <p> Lyon, France</p>
+        </div>
+
         <p>Designed and developped by Kao</p>
         <div className="absolute bottom-0 left-0 -z-1 h-[200px] w-full overflow-hidden">
           <svg

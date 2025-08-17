@@ -291,16 +291,19 @@ export default function AboutNew() {
   return (
     <section
       ref={aboutSectionRef}
-      className="relative h-screen grid-rows-[1fr_auto] md:grid"
+      className="relative flex h-screen grid-rows-[1fr_auto] flex-col justify-between py-12 md:grid"
     >
-      <div ref={aboutTitleRef} className="col-span-full flex gap-1 lg:py-12">
+      <div
+        ref={aboutTitleRef}
+        className="col-span-full flex flex-col gap-1 md:flex-row lg:py-12"
+      >
         <p className="text-2 font-bold">2</p>
         <h2
           ref={titleTextRef}
-          className="flex flex-col gap-0 text-3 leading-none font-bold tracking-tighter md:text-5"
+          className="flex flex-col gap-0 text-4 leading-none font-bold tracking-tighter md:text-5"
         >
           {["Marketing,", "Design,", "Development."].map((line, i) => (
-            <span key={i} ref={(el) => (titleSpanRefs.current[i] = el)}>
+            <span className="break-words hyphens-auto" lang="en" key={i} ref={(el) => (titleSpanRefs.current[i] = el)}>
               {line}
             </span>
           ))}
@@ -318,7 +321,6 @@ export default function AboutNew() {
               ref={(el) => (aboutCardRefs.current[i] = el)}
               text={paragraph.text}
               tags={paragraph.tags}
-              icon={paragraph.icon}
             />
           ))}
         </div>

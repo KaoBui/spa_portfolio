@@ -13,7 +13,7 @@ export default function Button({
   className = "",
 }) {
   const baseStyles =
-    "inline-flex items-center justify-center px-6 py-2 text-sm font-medium transition duration-200 rounded-lg tracking-wide";
+    "inline-flex items-center justify-center px-4 md:px-6 py-1 md:py-2 text-sm font-medium leading-none transition duration-200 rounded-lg tracking-wide";
   const variants = {
     primary: "bg-black text-white hover:bg-neutral-800",
     outline: "border border-black text-black hover:bg-black hover:text-white",

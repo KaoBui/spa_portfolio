@@ -12,7 +12,7 @@ const AboutCard = forwardRef(function AboutCard(
       <div className="col-start-1 col-end-4 flex flex-col items-start justify-center">
         {icon}
       </div>{" "}
-      <p className="text-justify text-1 leading-[1.4] text-light 2xl:text-2">
+      <p className="text-justify text-1 leading-[1.4] text-light 3xl:text-2">
         {text}
       </p>
       <div className="flex gap-8 text-right">

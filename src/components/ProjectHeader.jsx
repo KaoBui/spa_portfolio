@@ -134,7 +134,7 @@ const ProjectHeader = ({ currentProjectId }) => {
           ))}
         </div>
       </div>
-      <div className="relative z-10 h-[75vh] overflow-hidden rounded-xl bg-gray p-12 px-24">
+      <div className="relative z-10 lg:h-[75vh] overflow-hidden rounded-xl bg-gray p-2 lg:p-12 lg:px-24">
         <video
           ref={videoRef}
           id={`video-${current.id}`}
@@ -142,7 +142,7 @@ const ProjectHeader = ({ currentProjectId }) => {
           loop
           muted
           playsInline
-          className="m-auto aspect-[16/9] h-full object-cover"
+          className="m-auto aspect-[16/9] lg:h-full object-cover"
         >
           <source src={current.video} type="video/mp4" />
           Your browser does not support the video tag.

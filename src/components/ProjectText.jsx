@@ -20,7 +20,7 @@ const ProjectText = ({ textID }) => {
         scrollTrigger: {
           trigger: textEl,
           start: "top 90%",
-          toggleActions: "play reverse play reverse",
+          toggleActions: "play none none reverse",
         },
       });
       tl.fromTo(
@@ -39,7 +39,7 @@ const ProjectText = ({ textID }) => {
   );
 
   return (
-    <div ref={projectTextRef} className="grid grid-cols-12 gap-12">
+    <div ref={projectTextRef} className="lg:grid grid-cols-12 gap-12 space-y-8 lg:space-y-0">
       <div className="col-start-1 col-end-7 flex flex-col items-start justify-end gap-2">
         <p className="text-center text-0 font-bold text-black text-light uppercase">
           ({textID.tag})

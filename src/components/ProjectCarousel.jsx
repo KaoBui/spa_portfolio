@@ -31,8 +31,8 @@ const ProjectCarousel = ({ images = [] }) => {
         <Swiper
           onSwiper={(swiper) => (swiperRef.current = swiper)} // 🆕 Save swiper instance
           modules={[Navigation, Pagination, A11y]}
-          spaceBetween={50}
-          slidesPerView={2.2}
+          spaceBetween={56}
+          slidesPerView={1}
           centeredSlides={true}
           pagination={{ clickable: true }}
           loop={true}

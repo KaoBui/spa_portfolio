@@ -1,3 +1,9 @@
+import { useRef } from "react";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
 import Layout from "../sections/Layout";
 import ProjectHeader from "../components/ProjectHeader";
 import BeforeAfterSlider from "../components/BeforeAfterSlider";
@@ -7,6 +13,7 @@ import ProjectText from "../components/ProjectText";
 import StepCard from "../components/StepCard";
 import Before from "../assets/img/fakeoff-before.jpg";
 import After from "../assets/img/fakeoff-after.jpg";
+import RevealTitle from "../components/RevealTitle";
 
 // Project Assets
 import FakeOff1 from "../assets/img/fakeoff-1.jpg";
@@ -15,20 +22,25 @@ import FakeOff3 from "../assets/img/fakeoff-3.jpg";
 import FakeOff4 from "../assets/img/fakeoff-4.jpg";
 import FakeOff5 from "../assets/img/fakeoff-5.jpg";
 const projectImages = [FakeOff1, FakeOff2, FakeOff3, FakeOff4, FakeOff5];
+import Typo from "../assets/img/fakeoff-typo.png";
+import Palette1 from "../assets/img/fakeoff-palette-1.jpg";
+import Palette2 from "../assets/img/fakeoff-palette-2.jpg";
 
 export default function FakeOff() {
+  const pinSectionRef = useRef();
+  const pinColRef = useRef();
   const currentProjectId = 4;
 
   const text1 = {
-    tag: "brief",
-    title: "Defining how to improve Fake Off’s website",
+    tag: "mission",
+    title: "Identifying areas for improvement",
     texts: [
       "Fake Off, a French association led by journalists, fights misinformation among young audiences. At the start of this project, my mission was to propose a plan to enhance their website’s experience, ensuring it could better serve its audience while staying true to the brand’s serious and trustworthy identity. ",
     ],
   };
   const text2 = {
     tag: "process",
-    title: "Mapping the path to a better experience",
+    title: "My process to uncover the right design moves",
     texts: [
       "I began with competitor research and a full UX/UI audit. This allowed me to identify opportunities to improve accessibility, hierarchy, and engagement. Based on these findings, I developed a design strategy and prototype, focusing on making the platform more inclusive and user-friendly for both young audiences and educators.",
     ],
@@ -76,19 +88,121 @@ export default function FakeOff() {
     },
   ];
 
+  useGSAP(() => {
+    const mm = gsap.matchMedia();
+
+    // For bigger screens, pin the left section
+    mm.add("(min-width: 1024px)", () => {
+      const pinHeight = pinColRef.current.offsetHeight;
+      const endOffset = window.innerHeight / 2 + pinHeight;
+      console.log(pinHeight, endOffset);
+      const pinProject = ScrollTrigger.create({
+        trigger: pinColRef.current,
+        start: "50% 50%",
+        endTrigger: pinSectionRef.current,
+        end: `bottom top+=${endOffset}`,
+        pin: pinColRef.current,
+        scrub: true,
+        pinSpacing: false,
+      });
+      return () => {
+        pinProject.kill();
+      };
+    });
+    return () => mm.revert();
+  });
+
   return (
     <Layout>
-      <section className="space-y-24">
+      <section className="space-y-16 lg:space-y-36">
         <ProjectHeader currentProjectId={currentProjectId} />
         <ProjectText textID={text1}></ProjectText>
         <BeforeAfterSlider beforeImg={Before} afterImg={After} />
-        <ProjectText textID={text2}></ProjectText>
-        <section className="flex gap-6">
-          {steps.map((s, i) => (
-            <StepCard key={i} {...s} />
-          ))}
-        </section>
-        <ProjectText textID={text3}></ProjectText>
+
+        <div
+          ref={pinSectionRef}
+          className="grid-cols-12 gap-12 space-y-8 lg:grid lg:space-y-0"
+        >
+          <div
+            ref={pinColRef}
+            className="col-start-1 col-end-7 h-fit space-y-12"
+          >
+            <div className="flex flex-col items-start gap-2">
+              <p className="text-center text-0 font-bold text-black text-light uppercase">
+                (process)
+              </p>
+              <RevealTitle className="text-3 leading-[1.2]">
+                My process to uncover the right design moves{" "}
+              </RevealTitle>
+            </div>
+            <div>
+              <p className="text-1 text-light">
+                I began with competitor research and a full UX/UI audit. This
+                allowed me to identify opportunities to improve accessibility,
+                hierarchy, and engagement. Based on these findings, I developed
+                a design strategy and prototype, focusing on making the platform
+                more inclusive and user-friendly for both young audiences and
+                educators.
+              </p>
+            </div>
+          </div>
+          <div className="col-start-7 col-end-13 flex flex-col justify-end gap-12">
+            {steps.map((s, i) => (
+              <StepCard key={i} {...s} />
+            ))}
+          </div>
+        </div>
+        <div className="grid-cols-12 gap-12 space-y-8 lg:grid lg:space-y-0">
+          <div className="col-start-1 col-end-7 flex flex-col items-start justify-end gap-2">
+            <p className="text-center text-0 font-bold text-black text-light uppercase">
+              (solution)
+            </p>
+            <RevealTitle className="text-3 leading-[1.2]">
+              Rethinking the interface to feel lighter, clearer, and more human
+            </RevealTitle>
+          </div>
+          <div className="col-start-7 col-end-13">
+            <p className="text-1 text-light">
+              The redesign proposal focused on three key areas of UI
+              improvement: enhancing accessibility through better typography and
+              contrast, softening the visual tone with a lighter and more
+              balanced color palette, and introducing more engaging imagery to
+              support the platform’s educational mission. These adjustments
+              aimed to make the interface more inclusive and approachable for
+              young audiences, while preserving the credibility and seriousness
+              that define Fake Off’s identity.
+            </p>
+          </div>
+        </div>
+        <div className="lg:grid grid-cols-2 gap-12 space-y-6">
+          <div className="flex flex-col gap-6 rounded-xl bg-gray p-6 lg:p-12">
+            <img className="rounded-xl" src={Palette1} alt="" />
+            <img className="rounded-xl" src={Palette2} alt="" />
+          </div>
+          <div className="flex items-center justify-center rounded-xl bg-gray p-6 lg:p-12">
+            <img src={Typo} alt="" />
+          </div>
+        </div>
+        <div className="grid-cols-12 gap-12 space-y-8 lg:grid lg:space-y-0">
+          <div className="col-start-1 col-end-7 flex flex-col items-start gap-2">
+            <p className="text-center text-0 font-bold text-black text-light uppercase">
+              (solution){" "}
+            </p>
+            <RevealTitle className="text-3 leading-[1.2]">
+              Helping users find what matters faster
+            </RevealTitle>
+          </div>
+          <div className="col-start-7 col-end-13">
+            <p className="text-1 text-light">
+              Beyond visual adjustments, I focused on improving the overall user
+              experience. I restructured the homepage to make the most important
+              services—such as workshops, tools, and educational content—easier
+              to access. I added clearer entry points, simplified the layout,
+              and introduced explicit, well-placed calls-to-action to better
+              guide different types of users.
+            </p>
+          </div>
+        </div>
         <ProjectCarousel images={projectImages} />
         <RelatedProjects currentProjectId={currentProjectId} />
       </section>

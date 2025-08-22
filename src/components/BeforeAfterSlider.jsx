@@ -20,8 +20,8 @@ export default function BeforeAfterSlider({ beforeImg, afterImg }) {
     { dependencies: [showAfter], scope: maskRef },
   );
   return (
-    <div className="grid grid-cols-12 gap-12">
-      <div className="relative col-start-1 col-end-13 overflow-hidden rounded-xl bg-gray px-[20%] py-16">
+    <div className="lg:grid grid-cols-12 gap-12">
+      <div className="relative col-start-1 col-end-13 overflow-hidden rounded-xl bg-gray p-4 lg:px-[20%] lg:py-16">
         <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg">
           <img
             src={afterImg}
@@ -50,7 +50,7 @@ export default function BeforeAfterSlider({ beforeImg, afterImg }) {
               }}
             ></div>
             <button
-              className={`z-10 rounded-lg px-4 py-0  tracking-wide ${
+              className={`text-1 z-10 rounded-lg px-4 py-0 tracking-wide ${
                 !showAfter ? "text-black" : "text-white"
               }`}
               onClick={() => setShowAfter(false)}
@@ -58,7 +58,7 @@ export default function BeforeAfterSlider({ beforeImg, afterImg }) {
               Before
             </button>
             <button
-              className={`z-10 rounded-lg px-4 py-0  tracking-wide ${
+              className={`text-1 z-10 rounded-lg px-4 py-0 tracking-wide ${
                 !showAfter ? "text-white" : "text-black"
               }`}
               onClick={() => setShowAfter(true)}

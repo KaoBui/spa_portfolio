@@ -103,7 +103,7 @@ export default function Layout({ children }) {
           "--c": "100%",
         }}
       >
-        <p className="text-4 text-white uppercase"> {pageName}</p>
+        <p className="text-2 text-white uppercase lg:text-4"> {pageName}</p>
       </div>
       <div
         ref={layoutRef}

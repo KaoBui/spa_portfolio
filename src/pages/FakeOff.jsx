@@ -38,53 +38,39 @@ export default function FakeOff() {
       "Fake Off, a French association led by journalists, fights misinformation among young audiences. At the start of this project, my mission was to propose a plan to enhance their website’s experience, ensuring it could better serve its audience while staying true to the brand’s serious and trustworthy identity. ",
     ],
   };
-  const text2 = {
-    tag: "process",
-    title: "My process to uncover the right design moves",
-    texts: [
-      "I began with competitor research and a full UX/UI audit. This allowed me to identify opportunities to improve accessibility, hierarchy, and engagement. Based on these findings, I developed a design strategy and prototype, focusing on making the platform more inclusive and user-friendly for both young audiences and educators.",
-    ],
-  };
-  const text3 = {
-    tag: "solution",
-    title: "Turning insights into improvements",
-    texts: [
-      "I began with competitor research and a full UX/UI audit. This allowed me to identify opportunities to improve accessibility, hierarchy, and engagement. Based on these findings, I developed a design strategy and prototype, focusing on making the platform more inclusive and user-friendly for both young audiences and educators.",
-    ],
-  };
 
   const steps = [
     {
       step: 1,
       title: "research",
       objectives:
-        "Understand the media education landscape and Fake Off’s position within it.",
+        "Explore how similar organizations — NGOs, educational platforms, and media literacy initiatives — communicate their missions and engage young audiences through their websites.",
       findings:
-        "Identified direct competitors (media literacy NGOs) and indirect ones (digital awareness groups). Fake Off stood out for its strong brand identity but risked feeling too formal for younger audiences.",
+        "I identified common UX/UI patterns used across educational platforms: bright visuals, reassuring tones, and clear action prompts. Fake Off stands out thanks to a strong and distinctive brand identity but this aesthetic feels visually disconnected from the educational world it operates in, particularly for younger audiences.",
     },
     {
       step: 2,
       title: "audit",
       objectives:
-        "Evaluate Fake Off’s website experience from a UI/UX perspective.",
+        "Evaluate Fake Off’s existing website through a full UI/UX audit to identify weak points that could be improved, as well as strengths worth preserving. The focus was placed on accessibility, visual hierarchy, and the clarity of navigation and user flows.",
       findings:
-        "Discovered accessibility issues (contrast, typography), lack of clear calls-to-action, and a heavy, dark visual tone that limited engagement.",
+        "The audit revealed several issues impacting user experience: low color contrast, a dense and less readable serif typeface (especially on mobile), and missing alt texts, which limited accessibility. The site also lacked strong visual hierarchy and clear calls-to-action. Finally, the excessive use of high contrast color (red and black) make the site felt too heavy",
     },
     {
       step: 3,
       title: "define",
       objectives:
-        "Set priorities for improving the website without changing its core identity.",
+        "Synthesize research and audit findings to define clear design priorities that would improve the experience while staying true to Fake Off’s identity and mission",
       findings:
-        "Established three key goals: enhance accessibility, create a friendlier yet credible visual tone, and simplify navigation to highlight services.",
+        "Two key priorities emerged. On the UI side: enhance accessibility and improve the overall aesthetic of the site. On the UX side: simplify the user journey by highlighting Fake Off’s core services through improved content hierarchy and clearer calls-to-action.",
     },
     {
       step: 4,
       title: "design",
       objectives:
-        "Translate insights into a concrete improvement plan and prototype.",
+        "Translate the defined priorities into a concrete design proposal that demonstrates how UI and UX improvements could enhance the overall experience while reinforcing the brand’s credibility",
       findings:
-        "Proposed a refined design system with accessible typography and color palette, lighter visual tone, and a homepage mockup showcasing clearer journeys and CTAs",
+        "The final proposal included a revised color palette with better contrast, a new sans-serif typeface (DM Sans), and a clear typographic scale to improve readability. The layout was simplified to better structure information and highlight key services.",
     },
   ];
 
@@ -125,7 +111,7 @@ export default function FakeOff() {
         >
           <div
             ref={pinColRef}
-            className="col-start-1 col-end-7 h-fit space-y-12"
+            className="col-start-1 col-end-6 h-fit space-y-12"
           >
             <div className="flex flex-col items-start gap-2">
               <p className="text-center text-0 font-bold text-black text-light uppercase">
@@ -153,7 +139,7 @@ export default function FakeOff() {
           </div>
         </div>
         <div className="grid-cols-12 gap-12 space-y-8 lg:grid lg:space-y-0">
-          <div className="col-start-1 col-end-7 flex flex-col items-start justify-end gap-2">
+          <div className="col-start-1 col-end-6 flex flex-col items-start justify-end gap-2">
             <p className="text-center text-0 font-bold text-black text-light uppercase">
               (solution)
             </p>
@@ -174,7 +160,7 @@ export default function FakeOff() {
             </p>
           </div>
         </div>
-        <div className="lg:grid grid-cols-2 gap-12 space-y-6">
+        <div className="grid-cols-2 gap-12 space-y-6 lg:grid">
           <div className="flex flex-col gap-6 rounded-xl bg-gray p-6 lg:p-12">
             <img className="rounded-xl" src={Palette1} alt="" />
             <img className="rounded-xl" src={Palette2} alt="" />
@@ -184,7 +170,7 @@ export default function FakeOff() {
           </div>
         </div>
         <div className="grid-cols-12 gap-12 space-y-8 lg:grid lg:space-y-0">
-          <div className="col-start-1 col-end-7 flex flex-col items-start gap-2">
+          <div className="col-start-1 col-end-6 flex flex-col items-start gap-2">
             <p className="text-center text-0 font-bold text-black text-light uppercase">
               (solution){" "}
             </p>

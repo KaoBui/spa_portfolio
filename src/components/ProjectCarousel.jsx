@@ -27,7 +27,7 @@ const ProjectCarousel = ({ images = [] }) => {
 
   return (
     <div>
-      <div className="rounded-xl bg-gray py-16 pb-6">
+      <div className="rounded-xl bg-gray px-8 py-16 pb-4 lg:px-0">
         <Swiper
           onSwiper={(swiper) => (swiperRef.current = swiper)} // 🆕 Save swiper instance
           modules={[Navigation, Pagination, A11y]}

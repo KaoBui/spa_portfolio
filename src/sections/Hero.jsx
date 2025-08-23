@@ -2,7 +2,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import PortraitPhoto from "../assets/img/portrait.jpg";
+import PortraitPhoto from "../assets/img/portrait-1.jpg";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 

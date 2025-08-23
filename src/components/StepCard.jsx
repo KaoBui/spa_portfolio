@@ -4,44 +4,28 @@ const StepCard = ({ step, title, objectives, findings }) => {
   const [activeTab, setActiveTab] = useState("objectives");
 
   return (
-    <div className="flex min-h-[420px] w-full flex-col gap-[25vh] rounded-xl bg-gray p-8">
-      {/* Step Number + Title */}
+    <div className="flex flex-col gap-8 lg:gap-24 rounded-xl bg-gray p-8 lg:p-12">
       <div>
-        <h2 className="mb-2 text-5 leading-none font-light text-gray-3">
+        <h2 className="text-5 leading-none font-light text-gray-3">
           {step}
         </h2>
-        <p className="text-2 font-normal text-dark">{title}</p>
+        <p className="text-3 font-normal text-dark">{title}</p>
       </div>
 
       {/* Tabs */}
-      <div className="mt-6">
-        <div className="mb-2 flex gap-4">
-          <button
-            onClick={() => setActiveTab("objectives")}
-            className={`text-1 ${
-              activeTab === "objectives"
-                ? "font-semibold text-gray-1"
-                : "text-gray-3"
-            }`}
-          >
-            Objectives
-          </button>
-          <button
-            onClick={() => setActiveTab("findings")}
-            className={`text-1 ${
-              activeTab === "findings"
-                ? "font-semibold text-gray-1"
-                : "text-gray-3"
-            }`}
-          >
-            Findings
-          </button>
+      <div className="mt-6 flex flex-col lg:grid grid-cols-2 gap-6">
+        <div className="border-gray-4 space-y-4 rounded-2xl border p-6">
+          <p className="text-1 font-semibold text-dark">Objective</p>
+          <p className="text-1 leading-relaxed text-light">
+            {objectives}
+          </p>
         </div>
-
-        {/* Tab Content */}
-        <p className="text-1 leading-relaxed text-gray-1">
-          {activeTab === "objectives" ? objectives : findings}
-        </p>
+        <div className="border-gray-4 space-y-4 rounded-2xl border p-6">
+          <p className="text-1 font-semibold text-dark">Results</p>
+          <p className="text-1 leading-relaxed text-light">
+            {findings}
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -18,7 +18,7 @@ export default function Projects() {
   useGSAP(() => {
     const mm = gsap.matchMedia();
 
-    // For bigger screens, pin the left section
+    // PIN FOR BIGGER SCREEN
     mm.add("(min-width: 1024px)", () => {
       const pinProject = ScrollTrigger.create({
         trigger: projectsRef.current,
@@ -34,7 +34,28 @@ export default function Projects() {
       };
     });
 
-    // For smaller screens, create a horizontal scroll effect
+    mm.add("(min-width: 1024px)", () => {
+      const projectTriggers = [];
+
+      cardRefs.current?.forEach((card, index) => {
+        const trigger = ScrollTrigger.create({
+          trigger: card,
+          start: "top center",
+          end: "bottom center",
+          onEnter: () => setActiveProject(projects[index]),
+          onEnterBack: () => setActiveProject(projects[index]),
+          id: `project-trigger-${index}`,
+          name: "project-info-scroll",
+        });
+        projectTriggers.push(trigger);
+      });
+
+      return () => {
+        projectTriggers.forEach((t) => t.kill());
+      };
+    });
+
+    // PIN FOR SMALLER SCREEN
     mm.add("(max-width: 1023px)", () => {
       const totalWidth =
         projectImgRef.current.scrollWidth - projectImgRef.current.offsetWidth;
@@ -51,32 +72,34 @@ export default function Projects() {
           pinSpacing: true, // no extra space after pinning
         },
       });
+      ScrollTrigger.create({
+        trigger: projectsRef.current,
+        start: "top top",
+        end: "+=" + totalWidth,
+        scrub: true,
+        onUpdate: (self) => {
+          const scrollX = self.progress * totalWidth; // how far we scrolled in px
+
+          cardRefs.current.forEach((card, index) => {
+            const cardStart = card.offsetLeft; // px from container start
+            const cardEnd = cardStart + card.offsetWidth;
+
+            if (scrollX >= cardStart && scrollX < cardEnd) {
+              setActiveProject(projects[index]);
+            }
+          });
+        },
+      });
+
       return () => {
         sideScroll.kill();
       };
     });
+
     return () => mm.revert();
   });
 
-  useEffect(() => {
-    const projectTriggers = [];
-    cardRefs.current?.forEach((card, index) => {
-      const trigger = ScrollTrigger.create({
-        trigger: card,
-        start: "top center",
-        end: "bottom center",
-        onEnter: () => setActiveProject(projects[index]),
-        onEnterBack: () => setActiveProject(projects[index]),
-        id: `project-trigger-${index}`,
-        name: "project-info-scroll",
-      });
-      projectTriggers.push(trigger);
-    });
-    return () => {
-      projectTriggers.forEach((t) => t.kill());
-    };
-  });
-
+  // TITLE ANIMATION
   useGSAP(
     () => {
       if (!titleRef.current) return;
@@ -96,34 +119,14 @@ export default function Projects() {
         {
           opacity: 1,
           y: 0,
-          stagger: 0.05,
-          duration: 0.25,
-          ease: "power2.out",
+          stagger: 0.025,
+          duration: 0.35,
+          ease: "expoScale(10,2.5,power2.out)",
         },
       );
     },
     { dependencies: [activeProject] },
   );
-
-  // useGSAP(
-  //   () => {
-  //     gsap.from(
-  //       projectImgRef.current,
-  //       {
-  //         opacity: 0,
-  //         ease: "power2.out",
-  //         duration: 0.5,
-  //         scrollTrigger: {
-  //           trigger: projectImgRef.current,
-  //           start: "top 25%",
-  //           toggleActions: "play reverse play reverse",
-  //           markers: true,
-  //         },
-  //       },
-  //     );
-  //   },
-  //   { scope: projectImgRef },
-  // );
 
   return (
     <section

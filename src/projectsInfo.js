@@ -7,7 +7,7 @@ export const projects = [
   {
     id: 1,
     name: "Adecco France",
-    title: "Redesigning homepage to enhance job search experience.",
+    title: "Redesigning homepage for the leading recruitment agency",
     url: "/projects/adecco",
     imageSrc: AdeccoMockup,
     tags: ["UX Research", "Web Design", "Web Development"],

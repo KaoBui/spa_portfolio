@@ -32,7 +32,7 @@ import Orange5 from "../assets/img/orange-benefits.jpg";
 const projectImages = [Orange1, Orange2, Orange3, Orange4, Orange5];
 
 export default function Orange() {
-  const currentProjectId = 1;
+  const currentProjectId = 2;
   return (
     <>
       <Layout>

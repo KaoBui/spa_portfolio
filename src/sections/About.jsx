@@ -6,16 +6,16 @@ gsap.registerPlugin(ScrollTrigger);
 
 const paragraphs = [
   {
-    text: "I began my journey in marketing. This foundation shaped the way I approach every project: with a focus on users, performance, and results. It’s what drives my need to create work that not only looks good, but works.",
-    tags: ["SEO", "paid advertising"],
-  },
-  {
     text: "What started as a love for clean, beautiful PowerPoint slides turned into a growing curiosity for how visuals shape understanding. That curiosity led me to web and UX design, where structure meets emotion, and aesthetics serve purpose. I’m drawn to creating designs that not only look good—but make an impact.",
     tags: ["UX Design", "Web Design"],
   },
   {
     text: "Design doesn’t end on the canvas. I’ve always wanted to see ideas through—to bring them to life, exactly as imagined. That’s what drew me to code. It’s a new chapter, but one I’ve fully embraced. Learning to build what I design has opened up a new layer of creativity—one where every interaction, every detail, becomes real.",
     tags: ["Web Development", "WordPress", "React"],
+  },
+  {
+    text: "I began my journey in marketing. This foundation shaped the way I approach every project: with a focus on users, performance, and results. It’s what drives my need to create work that not only looks good, but works.",
+    tags: ["SEO", "paid advertising"],
   },
 ];
 
@@ -154,13 +154,11 @@ export default function About() {
           id="about-title"
           className="flex flex-col gap-8 text-3 leading-none font-bold tracking-tighter md:text-5"
         >
-          {["Marketing,", "Design,", "Development."].map(
-            (line, i) => (
-              <span key={i} ref={(el) => (titleSpanRefs.current[i] = el)}>
-                {line}
-              </span>
-            ),
-          )}
+          {["Design", "Development", "Marketing"].map((line, i) => (
+            <span key={i} ref={(el) => (titleSpanRefs.current[i] = el)}>
+              {line}
+            </span>
+          ))}
         </h2>
       </div>
       <div className="grid-cols-12 gap-16 md:grid">

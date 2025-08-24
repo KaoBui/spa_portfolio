@@ -62,19 +62,19 @@ const icon3 = (
 
 const paragraphs = [
   {
-    text: "I began my journey in marketing. This foundation shaped the way I approach every project: with a focus on users, performance, and results. It’s what drives my need to create work that not only looks good, but works.",
-    tags: ["SEO", "paid advertising"],
-    icon: icon1,
-  },
-  {
-    text: "What started as a love for clean, beautiful PowerPoint slides turned into a growing curiosity for how visuals shape understanding. That curiosity led me to web and UX design, where structure meets emotion, and aesthetics serve purpose. I’m drawn to creating designs that not only look good—but make an impact.",
-    tags: ["UX Design", "Web Design"],
+    text: "I always aim to design with impact—creating clean and modern interfaces that align with your brand and audience to help your business stand out.",
+    tags: ["ui/ux design", "web design"],
     icon: icon2,
   },
   {
-    text: "Design doesn’t end on the canvas. I’ve always wanted to see ideas through—to bring them to life, exactly as imagined. That’s what drew me to code. It’s a new chapter, but one I’ve fully embraced. Learning to build what I design has opened up a new layer of creativity—one where every interaction, every detail, becomes real.",
-    tags: ["Web Development", "WordPress", "React"],
+    text: "I love bringing ideas to life through code—crafting custom, interactive interfaces with smooth performance and scalable foundations to deliver engaging digital experiences.",
+    tags: ["web development", "wordPress", "animation"],
     icon: icon3,
+  },
+  {
+    text: "With a background in marketing, I approach every project with a focus on users, performance, and results. Beyond aesthetics, I care about what works—creating experiences that deliver real impact.",
+    tags: ["SEO", "copywriting", "analytics"],
+    icon: icon1,
   },
 ];
 
@@ -291,19 +291,24 @@ export default function AboutNew() {
   return (
     <section
       ref={aboutSectionRef}
-      className="relative flex h-screen grid-rows-[1fr_auto] flex-col justify-between py-12 md:grid"
+      className="relative flex h-screen grid-rows-[1fr_auto] flex-col justify-between py-12 lg:grid"
     >
       <div
         ref={aboutTitleRef}
-        className="col-span-full flex flex-col gap-1 md:flex-row lg:py-12"
+        className="col-span-full flex flex-col gap-1 md:flex-row lg:pb-12"
       >
         <p className="text-2 font-bold">2</p>
         <h2
           ref={titleTextRef}
           className="flex flex-col gap-0 text-4 leading-none font-bold tracking-tighter md:text-5"
         >
-          {["Marketing,", "Design,", "Development."].map((line, i) => (
-            <span className="break-words hyphens-auto" lang="en" key={i} ref={(el) => (titleSpanRefs.current[i] = el)}>
+          {["Design", "Development", "Marketing"].map((line, i) => (
+            <span
+              className="break-words hyphens-auto"
+              lang="en"
+              key={i}
+              ref={(el) => (titleSpanRefs.current[i] = el)}
+            >
               {line}
             </span>
           ))}

@@ -99,8 +99,8 @@ export default function ProjectTabs() {
   );
 
   return (
-    <div className="flex flex-col items-center justify-center overflow-hidden rounded-xl bg-gray p-12 px-24">
-      <div className="mb-10 flex flex-wrap justify-center gap-2 overflow-hidden rounded-full bg-gray-1 p-2">
+    <div className="flex flex-col items-center justify-center overflow-hidden rounded-xl bg-gray p-4 lg:p-12 lg:px-24">
+      <div className="mb-6 lg:mb-10 flex flex-col lg:flex-row flex-wrap justify-center gap-2 overflow-hidden rounded-3xl lg:rounded-full bg-gray-1 p-2">
         {tabs.map((tab) => (
           <button
             key={tab}
@@ -114,7 +114,7 @@ export default function ProjectTabs() {
         ))}
       </div>
 
-      <div ref={tabRefs} className="grid grid-cols-1 gap-10 md:grid-cols-2">
+      <div ref={tabRefs} className="grid grid-cols-1 gap-4 lg:gap-10 md:grid-cols-2">
         {content[activeTab].map((item, index) => (
           <div key={index} className="rounded-xl p-4 text-center">
             <img

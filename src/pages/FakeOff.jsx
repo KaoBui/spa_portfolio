@@ -46,15 +46,15 @@ export default function FakeOff() {
       objectives:
         "Explore how similar organizations — NGOs, educational platforms, and media literacy initiatives — communicate their missions and engage young audiences through their websites.",
       findings:
-        "I identified common UX/UI patterns used across educational platforms: bright visuals, reassuring tones, and clear action prompts. Fake Off stands out thanks to a strong and distinctive brand identity but this aesthetic feels visually disconnected from the educational world it operates in, particularly for younger audiences.",
+        "Common UX/UI patterns used across educational platforms are identified : bright visuals, reassuring tones, and clear action prompts. Fake Off stands out thanks to a strong and distinctive brand identity but feels visually disconnected from the educational sector.",
     },
     {
       step: 2,
       title: "audit",
       objectives:
-        "Evaluate Fake Off’s existing website through a full UI/UX audit to identify weak points that could be improved, as well as strengths worth preserving. The focus was placed on accessibility, visual hierarchy, and the clarity of navigation and user flows.",
+        "Evaluate Fake Off’s existing website through a full UI/UX audit to identify weak points that could be improved, as well as strengths worth preserving. The focus was placed on accessibility, visual presentation, and user flows.",
       findings:
-        "The audit revealed several issues impacting user experience: low color contrast, a dense and less readable serif typeface (especially on mobile), and missing alt texts, which limited accessibility. The site also lacked strong visual hierarchy and clear calls-to-action. Finally, the excessive use of high contrast color (red and black) make the site felt too heavy",
+        "The audit revealed several issues impacting user experience: low color contrast, a dense and less readable typeface, and missing alt texts. The site also lacked strong visual hierarchy and clear calls-to-action.",
     },
     {
       step: 3,
@@ -147,20 +147,22 @@ export default function FakeOff() {
               Rethinking the interface to feel lighter, clearer, and more human
             </RevealTitle>
           </div>
-          <div className="col-start-7 col-end-13">
+          <div className="col-start-7 col-end-13 space-y-2">
             <p className="text-1 text-light">
               The redesign proposal focused on three key areas of UI
               improvement: enhancing accessibility through better typography and
               contrast, softening the visual tone with a lighter and more
               balanced color palette, and introducing more engaging imagery to
-              support the platform’s educational mission. These adjustments
-              aimed to make the interface more inclusive and approachable for
-              young audiences, while preserving the credibility and seriousness
-              that define Fake Off’s identity.
+              support the platform’s educational mission.
+            </p>
+            <p className="text-1 text-light">
+              These adjustments aimed to make the interface more inclusive and
+              approachable for young audiences, while preserving the credibility
+              and seriousness that define Fake Off’s identity.
             </p>
           </div>
         </div>
-        <div className="grid-cols-2 gap-12 space-y-6 lg:grid">
+        <div className="grid-cols-2 gap-12 space-y-6 lg:grid lg:space-y-0">
           <div className="flex flex-col gap-6 rounded-xl bg-gray p-6 lg:p-12">
             <img className="rounded-xl" src={Palette1} alt="" />
             <img className="rounded-xl" src={Palette2} alt="" />

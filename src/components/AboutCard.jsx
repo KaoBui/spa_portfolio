@@ -6,7 +6,7 @@ const AboutCard = forwardRef(function AboutCard(
 ) {
   return (
     <div
-      className="col-start-1 row-start-1 flex flex-col justify-end gap-4 pb-8"
+      className="col-start-1 row-start-1 flex flex-col justify-end gap-4"
       ref={ref}
     >
       <div className="col-start-1 col-end-4 flex flex-col items-start justify-center">

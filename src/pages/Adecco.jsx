@@ -4,6 +4,7 @@ import RelatedProjects from "../components/RelatedProjects";
 import ProjectText from "../components/ProjectText";
 import ProjectTabs from "../components/ProjectTabs";
 import AdeccoMockup from "../assets/img/adecco-mockup.jpg";
+import RevealTitle from "../components/RevealTitle";
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -34,47 +35,14 @@ const text3 = {
 };
 
 export default function Adecco() {
-  const currentProjectId = 2;
-  const resultsRef = useRef();
-
-  useGSAP(
-    () => {
-      const textEl = resultsRef.current.querySelector("h2");
-      const words = textEl.textContent.trim().split(" ");
-      textEl.innerHTML = words
-        .map(
-          (word) =>
-            `<span class="word inline-flex whitespace-nowrap overflow-hidden"><span class="inline-block overflow-hidden leading-[1.4] -mt-2">${word}&nbsp;</span></span>`,
-        )
-        .join("");
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: textEl,
-          start: "top 90%",
-          toggleActions: "play reverse play reverse",
-        },
-      });
-      tl.fromTo(
-        textEl.querySelectorAll(".word > span"),
-        { opacity: 0, y: "100%" },
-        {
-          opacity: 1,
-          y: 0,
-          stagger: 0.025,
-          duration: 0.75,
-          ease: "expoScale(10,2.5,power2.out)",
-        },
-      );
-    },
-    { scope: resultsRef },
-  );
+  const currentProjectId = 1;
 
   return (
     <Layout>
-      <section className="space-y-24">
+      <section className="space-y-16 lg:space-y-36">
         <ProjectHeader currentProjectId={currentProjectId} />
         <ProjectText textID={text1}></ProjectText>
-        <div className="grid grid-cols-12 gap-12 overflow-hidden rounded-xl bg-gray p-12 px-24">
+        <div className="grid grid-cols-12 gap-12 overflow-hidden rounded-xl bg-gray p-6 lg:p-12 lg:px-24">
           <div className="col-start-2 col-end-12 flex">
             <div className="relative flex aspect-square flex-1">
               <svg
@@ -144,14 +112,15 @@ export default function Adecco() {
           />
         </div>
 
-        <div ref={resultsRef} className="grid grid-cols-12 gap-12">
+        <div className="flex grid-cols-12 flex-col gap-6 lg:grid lg:gap-12">
           <div className="col-start-1 col-end-7 flex flex-col items-start justify-end gap-2">
             <p className="text-center text-0 font-bold text-black text-light uppercase">
               (results)
             </p>
-            <h2 className="text-3 leading-[0.8]">
-              Modernizing design and tackling information overload
-            </h2>
+
+            <RevealTitle className="text-2 leading-[1.2] lg:text-3">
+              Higher user engagement after redesign
+            </RevealTitle>
           </div>
           <div className="col-start-7 col-end-13 flex flex-col justify-end gap-4"></div>
           <div className="col-start-1 col-end-7 flex flex-col justify-start gap-4">
@@ -165,7 +134,7 @@ export default function Adecco() {
             </p>
           </div>
           <div className="col-start-7 col-end-13 flex flex-col gap-6">
-            <div className="flex gap-6">
+            <div className="flex flex-col gap-6 lg:flex-row">
               <div className="flex flex-col rounded-xl bg-gray p-6">
                 <p className="text-3 leading-[1.2]">3x</p>
                 <p className="text-1">
@@ -185,7 +154,7 @@ export default function Adecco() {
                 </p>
               </div>
             </div>
-            <div className="flex gap-6">
+            <div className="flex flex-col gap-6 lg:flex-row">
               <div className="flex flex-col rounded-xl bg-gray p-6">
                 <p className="text-3 leading-[1.2]">+20%</p>
                 <p className="text-1">
@@ -195,7 +164,8 @@ export default function Adecco() {
               <div className="flex flex-col rounded-xl bg-gray p-6">
                 <p className="text-3 leading-[1.2]">2.8x</p>
                 <p className="text-1">
-                  interaction rate in the Job Category section <em>(all devices)</em>
+                  interaction rate in the Job Category section{" "}
+                  <em>(all devices)</em>
                 </p>
               </div>
             </div>

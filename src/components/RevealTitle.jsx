@@ -21,7 +21,7 @@ export default function RevealTitle({ children, className = "" }) {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: titleRef.current,
-          start: "top 90%",
+          start: "top 95%",
           toggleActions: "play none none reverse",
         },
       });
@@ -30,7 +30,7 @@ export default function RevealTitle({ children, className = "" }) {
         yPercent: 100,
         opacity: 0,
         stagger: 0.025,
-        duration: 0.75,
+        duration: 0.5,
         ease: "expoScale(10,2.5,power2.out)",
       });
 

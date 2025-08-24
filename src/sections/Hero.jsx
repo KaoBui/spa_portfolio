@@ -2,7 +2,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import PortraitPhoto from "../assets/img/portrait-1.jpg";
+import PortraitPhoto from "../assets/img/portrait-2.jpg";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -177,24 +177,25 @@ export default function Hero() {
             </h1>
           </div>
         </div>
-        <div className="col-start-10 col-end-13 flex w-2/3 flex-col items-end justify-end gap-8 pt-6 md:w-auto md:pt-0">
+        <div className="col-start-10 col-end-13 flex w-2/3 flex-col items-end lg:items-start justify-end gap-8 pt-6 md:w-auto md:pt-0">
           <div
             ref={imgRef}
             style={{ clipPath: "inset(0 0 0% 0)" }}
-            className="img-container aspect-square max-h-[20vh] overflow-hidden md:max-h-full"
+            className="img-container aspect-square max-h-[20vh] overflow-hidden md:max-h-full w-2/3"
           >
             <img
-              className="h-full w-full rounded-2xl object-cover object-top grayscale"
+              className="object-co h-full w-full rounded-2xl object-cover object-center"
               src={PortraitPhoto}
               alt="Headshot photo"
             />
           </div>
           <p
-            className="presentation text-right text-1 leading-[1.4] text-black md:text-left md:text-1"
+            className="presentation text-right text-1 leading-[1.6] text-black md:text-left md:text-1"
             style={{ clipPath: "inset(0 0% 0 0)" }}
           >
-            I refuse to believe marketing, design, and code need separate
-            people.
+            From design to development, I create websites that combine
+            aesthetics, interactivity, and performance—built to serve both users
+            and business needs.
           </p>
         </div>
       </div>

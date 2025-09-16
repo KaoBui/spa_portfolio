@@ -1,15 +1,18 @@
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HamburgerButton from "./HamburgerButton";
-import  lenis  from "../lenis";
+import lenis from "../lenis";
+
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Navbar() {
   const [showHamburger, setShowHamburger] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const headerRef = useRef(null);
+  const location = useLocation();
+  const pathname = location.pathname;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -35,18 +38,17 @@ export default function Navbar() {
 
   useEffect(() => {
     if (menuOpen) {
-      lenis.stop();  // disable scroll
+      lenis.stop(); // disable scroll
     } else {
       lenis.start(); // re-enable scroll
     }
   }, [menuOpen]);
-  
 
   return (
     <>
       <header
         ref={headerRef}
-        className="absolute top-0 left-0 z-[100] w-full px-6 py-6 transition-all  md:px-8 lg:px-12 2xl:px-16 3xl:px-20"
+        className="absolute top-0 left-0 z-[100] w-full px-6 py-6 transition-all md:px-8 lg:px-12 2xl:px-16 3xl:px-20"
       >
         <nav className="flex items-center justify-between">
           <Link to="/" className="text-lg font-bold">
@@ -57,9 +59,11 @@ export default function Navbar() {
             <a href="#footer" className="hover:underline">
               contacts
             </a>
-            <a href="#about" className="hover:underline">
-              about
-            </a>
+            {pathname === "/" && (
+              <a href="#about" className="hover:underline">
+                about
+              </a>
+            )}
             <a href="#projects" className="hover:underline">
               projects
             </a>

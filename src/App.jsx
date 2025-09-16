@@ -17,16 +17,16 @@ function App() {
       <IntroAnimation />
       <div className="texture-overlay" />
       <Navbar />
-      <main>
-        <ScrollToTop />
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects/orange-space" element={<Orange />} />
-          <Route path="/projects/adecco" element={<Adecco />} />
-          <Route path="/projects/the-art-office" element={<TheArtOffice />} />
-          <Route path="/projects/fake-off" element={<FakeOff />} />
-        </Routes>
-      </main>
+        <main>
+          <ScrollToTop />
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<Home />} />
+            <Route path="/projects/orange-space" element={<Orange />} />
+            <Route path="/projects/adecco" element={<Adecco />} />
+            <Route path="/projects/the-art-office" element={<TheArtOffice />} />
+            <Route path="/projects/fake-off" element={<FakeOff />} />
+          </Routes>
+        </main>{" "}
       <Footer />
     </>
   );

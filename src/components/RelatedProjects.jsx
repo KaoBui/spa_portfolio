@@ -5,7 +5,7 @@ const RelatedProjects = ({ currentProjectId }) => {
   const related = projects.filter((project) => project.id !== currentProjectId);
 
   return (
-    <section className="related-projects">
+    <section id="projects" className="related-projects">
       <div className="mb-10 flex flex-col gap-2">
         <h2 className="text-4 leading-none font-bold tracking-tighter">
           Related projects

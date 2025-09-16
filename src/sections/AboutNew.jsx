@@ -290,7 +290,7 @@ export default function AboutNew() {
   );
   return (
     <section
-      ref={aboutSectionRef}
+      ref={aboutSectionRef} id="about"
       className="relative flex h-screen grid-rows-[1fr_auto] flex-col justify-between py-12 lg:grid"
     >
       <div

@@ -4,6 +4,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HamburgerButton from "./HamburgerButton";
 import lenis from "../lenis";
+import { HashLink } from "react-router-hash-link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -56,17 +57,17 @@ export default function Navbar() {
           </Link>
 
           <div className="hidden gap-6 md:flex">
-            <a href="/#footer" className="hover:underline">
-              contacts
-            </a>
             {pathname === "/" && (
-              <a href="/#about" className="hover:underline">
+              <HashLink smooth to="/#about" className="hover:underline">
                 about
-              </a>
+              </HashLink>
             )}
-            <a href="/#projects" className="hover:underline">
+            <HashLink smooth to="/#projects" className="hover:underline">
               projects
-            </a>
+            </HashLink>
+            <HashLink smooth to="/#footer" className="hover:underline">
+              contacts
+            </HashLink>
           </div>
         </nav>
       </header>
@@ -100,27 +101,30 @@ export default function Navbar() {
         >
           home
         </Link>
-        <a
-          href="#projects"
+        <HashLink
+          smooth
+          to="/#projects"
           onClick={() => setMenuOpen(false)}
           className="text-xl font-semibold"
         >
           projects
-        </a>
-        <a
-          href="#about"
+        </HashLink>
+        <HashLink
+          smooth
+          to="/#about"
           onClick={() => setMenuOpen(false)}
           className="text-xl font-semibold"
         >
           about
-        </a>
-        <a
-          href="#footer"
+        </HashLink>
+        <HashLink
+          smooth
+          to="/#footer"
           onClick={() => setMenuOpen(false)}
           className="text-xl font-semibold"
         >
           contacts
-        </a>
+        </HashLink>
       </div>
     </>
   );

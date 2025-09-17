@@ -56,15 +56,15 @@ export default function Navbar() {
           </Link>
 
           <div className="hidden gap-6 md:flex">
-            <a href="#footer" className="hover:underline">
+            <a href="/#footer" className="hover:underline">
               contacts
             </a>
             {pathname === "/" && (
-              <a href="#about" className="hover:underline">
+              <a href="/#about" className="hover:underline">
                 about
               </a>
             )}
-            <a href="#projects" className="hover:underline">
+            <a href="/#projects" className="hover:underline">
               projects
             </a>
           </div>

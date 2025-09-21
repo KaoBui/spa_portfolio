@@ -16,7 +16,9 @@ const IntroAnimation = () => {
         innerText: 100,
         duration: 3,
         snap: { innerText: 2 },
-        ease: "power3.inOut",
+        scale: 2,
+        opacity: 1,
+        ease: "expoScale(10,2.5,power2.inOut)",
         onUpdate: () => {
           counter.textContent = `${Math.round(Number(counter.innerText))}`;
         },
@@ -71,7 +73,7 @@ const IntroAnimation = () => {
     >
       <div
         ref={counterRef}
-        className="counter z-[2] text-[5vw] font-bold text-white"
+        className="counter z-[2] text-[5vw] font-bold text-white opacity-20"
       >
         0
       </div>

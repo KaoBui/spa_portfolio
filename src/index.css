@@ -24,10 +24,10 @@
   --color-light: #4f4f4f;
   --color-dark: #080807;
   --color-gray: #d9d9d9;
-  --color-gray-5: #E0E0E0;
+  --color-gray-5: #e0e0e0;
   --color-gray-4: #bdbdbd;
   --color-gray-3: #828282;
-  --color-gray-2: #4F4F4F;
+  --color-gray-2: #4f4f4f;
   --color-gray-1: #333333;
   --text-0: clamp(0.62rem, 0.12vi + 0.59rem, 0.77rem);
   --text-1: clamp(1rem, 0.19vi + 0.95rem, 1.25rem);
@@ -36,6 +36,27 @@
   --text-4: clamp(4.23rem, 0.81vi + 4.02rem, 5.29rem);
   --text-5: clamp(6.84rem, 1.32vi + 6.51rem, 8.57rem);
   --breakpoint-3xl: 120rem;
+}
+
+@layer components {
+  .img-overlay {
+    -webkit-mask-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 1) 15%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+
+    mask-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 1) 15%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    mask-repeat: no-repeat;
+    mask-size: 100% 100%;
+    height: 20%;
+  }
 }
 
 :root {

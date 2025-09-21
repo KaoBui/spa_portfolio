@@ -160,7 +160,6 @@ export default function AboutNew() {
             ease: "power2.out",
             overwrite: "true",
           });
-          console.log("Highlighting span index:", index);
         });
       };
 
@@ -290,7 +289,8 @@ export default function AboutNew() {
   );
   return (
     <section
-      ref={aboutSectionRef} id="about"
+      ref={aboutSectionRef}
+      id="about"
       className="relative flex h-screen grid-rows-[1fr_auto] flex-col justify-between py-12 lg:grid"
     >
       <div

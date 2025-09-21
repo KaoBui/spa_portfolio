@@ -29,29 +29,59 @@ export default function Projects() {
         scrub: true,
         pinSpacing: false,
       });
-      return () => {
-        pinProject.kill();
-      };
-    });
 
-    mm.add("(min-width: 1024px)", () => {
-      const projectTriggers = [];
-
-      cardRefs.current?.forEach((card, index) => {
+      const projectTriggers = cardRefs.current?.map((card, index) => {
         const trigger = ScrollTrigger.create({
           trigger: card,
           start: "top center",
           end: "bottom center",
           onEnter: () => setActiveProject(projects[index]),
           onEnterBack: () => setActiveProject(projects[index]),
-          id: `project-trigger-${index}`,
-          name: "project-info-scroll",
         });
-        projectTriggers.push(trigger);
+
+        const img = card.querySelector(".project-img");
+        if (img) {
+          gsap.set(img, {
+            filter: "blur(8px) grayscale(100%)",
+            willChange: "filter",
+          });
+          gsap.to(img, {
+            filter: "blur(0px) grayscale(0%)",
+            ease: "none",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 50%",
+              end: "top 20%",
+              scrub: true,
+            },
+          });
+
+          const overlay = card.querySelector(".img-overlay");
+          const overlayHeight = overlay.offsetHeight;
+          if (!overlay) return;
+          gsap.fromTo(
+            overlay,
+            { top: "0%" },
+            {
+              top: `calc(60% + ${overlayHeight}px)`,
+              ease: "none",
+              scrollTrigger: {
+                trigger: img,
+                start: `top+=${overlayHeight} bottom`,
+                end: `bottom+=${overlayHeight} bottom`,
+                scrub: true,
+                markers: true,
+              },
+            },
+          );
+        }
+        return trigger;
       });
 
       return () => {
+        pinProject.kill();
         projectTriggers.forEach((t) => t.kill());
+        ScrollTrigger.getAll().forEach((st) => st.kill());
       };
     });
 
@@ -113,7 +143,8 @@ export default function Projects() {
             `<span class="word inline-block whitespace-nowrap overflow-hidden"><span class="inline-block overflow-hidden leading-[1.2]">${word}&nbsp;</span></span>`,
         )
         .join("");
-      gsap.fromTo(
+
+      const tl = gsap.fromTo(
         el.querySelectorAll(".word > span"),
         { opacity: 0, y: "100%" },
         {
@@ -124,6 +155,7 @@ export default function Projects() {
           ease: "expoScale(10,2.5,power2.out)",
         },
       );
+      return () => tl.kill(); // cleanup on re-run
     },
     { dependencies: [activeProject] },
   );

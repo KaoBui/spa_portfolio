@@ -184,7 +184,7 @@ export default function Hero() {
             className="img-container aspect-square max-h-[20vh] overflow-hidden md:max-h-full w-2/3"
           >
             <img
-              className="object-co h-full w-full rounded-2xl object-cover object-center"
+              className="object-co h-full w-full rounded-2xl object-cover object-top"
               src={PortraitPhoto}
               alt="Headshot photo"
             />
@@ -193,7 +193,7 @@ export default function Hero() {
             className="presentation text-right text-1 leading-[1.6] text-black md:text-left md:text-1"
             style={{ clipPath: "inset(0 0% 0 0)" }}
           >
-            From design to development, I create websites that combine
+            From design to development, I create interfaces that combine
             aesthetics, interactivity, and performance—built to serve both users
             and business needs.
           </p>

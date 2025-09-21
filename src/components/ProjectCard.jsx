@@ -13,10 +13,11 @@ const ProjectCard = forwardRef(function ProjectCard(
       data-title={title}
       data-url={url}
     >
-      <div className="img-container br-s relative h-full w-full overflow-hidden">
+      <div className="img-container br-s relative h-full w-full overflow-hidden rounded-2xl">
+        <div className="img-overlay absolute top-0 z-2 h-2/5 w-full bg-white/25 backdrop-blur-xl"></div>
         <Link to={url} className="absolute inset-0 h-full w-full">
           <img
-            className="h-full w-full rounded-2xl object-cover"
+            className="project-img h-full w-full object-cover"
             src={imageSrc}
             alt={alt || title}
           />

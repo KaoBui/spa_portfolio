@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import Button from "../components/Button";
 
 const ProjectCard = forwardRef(function ProjectCard(
-  { imageSrc, alt, tags = [], title, url },
+  { imageSrc, alt, tags = [], title, url, year },
   ref,
 ) {
   return (
@@ -25,6 +25,9 @@ const ProjectCard = forwardRef(function ProjectCard(
       </div>
 
       <div className="flex gap-4">
+        <p className="rounded-full border-1 border-dark bg-dark px-2 py-1 text-white text-0 md:text-1">
+          {year}
+        </p>
         {tags.map((tag, index) => (
           <p
             key={index}

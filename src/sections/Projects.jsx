@@ -203,6 +203,7 @@ export default function Projects() {
             url={project.url}
             imageSrc={project.imageSrc}
             tags={project.tags}
+            year={project.year}
             alt={`${project.name} Project Mockup`}
           />
         ))}

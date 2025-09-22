@@ -29,7 +29,7 @@ import Palette2 from "../assets/img/fakeoff-palette-2.jpg";
 export default function FakeOff() {
   const pinSectionRef = useRef();
   const pinColRef = useRef();
-  const currentProjectId = 4;
+  const currentProjectId = 1;
 
   const text1 = {
     tag: "mission",

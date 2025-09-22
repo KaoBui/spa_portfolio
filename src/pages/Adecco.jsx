@@ -35,7 +35,7 @@ const text3 = {
 };
 
 export default function Adecco() {
-  const currentProjectId = 1;
+  const currentProjectId = 2;
 
   return (
     <Layout>

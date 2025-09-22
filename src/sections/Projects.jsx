@@ -70,7 +70,6 @@ export default function Projects() {
                 start: `top+=${overlayHeight} bottom`,
                 end: `bottom+=${overlayHeight} bottom`,
                 scrub: true,
-                markers: true,
               },
             },
           );

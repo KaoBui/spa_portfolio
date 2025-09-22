@@ -118,7 +118,7 @@ export default function FakeOff() {
                 (process)
               </p>
               <RevealTitle className="text-3 leading-[1.2]">
-                My process to uncover the right design moves{" "}
+                My process to uncover the right design moves
               </RevealTitle>
             </div>
             <div>

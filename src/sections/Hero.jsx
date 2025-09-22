@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import PortraitPhoto from "../assets/img/portrait-2.jpg";
+import Noise from "../assets/img/subtle-ht.png";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -177,14 +178,17 @@ export default function Hero() {
             </h1>
           </div>
         </div>
-        <div className="col-start-10 col-end-13 flex w-2/3 flex-col items-end lg:items-start justify-end gap-8 pt-6 md:w-auto md:pt-0">
+        <div className="col-start-10 col-end-13 flex w-2/3 flex-col items-end justify-end gap-8 pt-6 md:w-auto md:pt-0 lg:items-start">
           <div
             ref={imgRef}
             style={{ clipPath: "inset(0 0 0% 0)" }}
-            className="img-container aspect-square max-h-[20vh] overflow-hidden md:max-h-full w-2/3"
+            className="img-container relative aspect-square max-h-[20vh] w-2/3 overflow-hidden rounded-2xl md:max-h-full"
           >
+            <div className="absolute inset-0 z-1 h-full w-full bg-black/25">
+              <img className="h-full" src={Noise} alt="" />
+            </div>
             <img
-              className="object-co h-full w-full rounded-2xl object-cover object-top"
+              className="h-full w-full object-cover object-top"
               src={PortraitPhoto}
               alt="Headshot photo"
             />

@@ -102,6 +102,7 @@ export default function Adecco() {
           </div>
         </div>
         <ProjectText textID={text2}></ProjectText>
+
         <ProjectTabs />
         <ProjectText textID={text3}></ProjectText>
         <div className="overflow-hidden rounded-xl bg-gray">

@@ -108,15 +108,17 @@ const ProjectHeader = ({ currentProjectId }) => {
   );
 
   return (
-    <div ref={projectHeaderRef} className="flex flex-col gap-12 min-h-dvh justify-end lg:pt-56">
+    <div
+      ref={projectHeaderRef}
+      className="flex min-h-dvh flex-col justify-end gap-12 lg:pt-56"
+    >
       <div
         ref={projectInfoRef}
         className="flex grid-cols-12 flex-col gap-4 lg:grid lg:gap-12"
       >
         <div className="col-start-1 col-end-9 flex flex-col gap-4">
           <div className="flex gap-2 text-1">
-            <p>({current.year})</p>
-            <p>({current.name})</p>
+            <p className="text-1">{current.name}</p>
           </div>
           <h3
             ref={projectTitleRef}
@@ -126,7 +128,10 @@ const ProjectHeader = ({ currentProjectId }) => {
           </h3>
         </div>
 
-        <div className="col-start-10 col-end-13 flex flex-wrap content-end items-end justify-start lg:justify-end gap-4">
+        <div className="col-start-10 col-end-13 flex flex-wrap content-end items-end justify-start gap-4 lg:justify-end">
+          <p className="rounded-full block border-1 border-dark px-2 py-1 bg-dark text-white">
+            {current.year}
+          </p>
           {current.tags.map((tag, index) => (
             <p
               key={index}
@@ -134,7 +139,7 @@ const ProjectHeader = ({ currentProjectId }) => {
             >
               {tag}
             </p>
-          ))}
+          ))}{" "}
         </div>
       </div>
       <div className="relative z-10 overflow-hidden rounded-xl bg-gray p-2 lg:h-[75vh] lg:p-12 lg:px-24">

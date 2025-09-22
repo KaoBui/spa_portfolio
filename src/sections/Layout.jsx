@@ -16,6 +16,8 @@ export default function Layout({ children }) {
   const project = projects.find((p) => p.url === pathname);
   const pageName = project?.name ?? "Home";
 
+  const isUltraWide = window.innerWidth > 2060;
+
   useGSAP(
     () => {
       const tl = gsap.timeline();
@@ -31,7 +33,7 @@ export default function Layout({ children }) {
             {
               duration: 1,
               ease: "power3.inOut",
-              "--b": "100%",
+              "--b": isUltraWide ? "1800px" : "100%",
             },
             "<+0",
           )
@@ -95,11 +97,11 @@ export default function Layout({ children }) {
     <div ref={pageRef}>
       <div
         ref={maskRef}
-        className="fixed inset-0 z-[1000] mb-0 flex items-center justify-center bg-black"
+        className="fixed inset-0 z-[1000] mb-0 flex items-center justify-center bg-black will-change-[clip-path]"
         style={{
           clipPath: "ellipse(var(--a) var(--b) at 50% var(--c))",
           "--a": "60%",
-          "--b": "0%",
+          "--b": isUltraWide ? "0px" : "0%",
           "--c": "100%",
         }}
       >

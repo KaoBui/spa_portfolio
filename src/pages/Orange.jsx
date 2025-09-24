@@ -24,6 +24,7 @@ import OrangeMobile from "../assets/img/orange-mobile-mockup.png";
 import OrangeMockup from "../assets/img/orange-mockup.jpg";
 import OrangeBefore from "../assets/img/orange-before.jpg";
 import OrangeAfter from "../assets/img/orange-after.jpg";
+import OrangeSpace from "../assets/img/orange-open-space.jpg";
 import Orange1 from "../assets/img/orange-service-page.jpg";
 import Orange2 from "../assets/img/orange-blog-post.jpg";
 import Orange3 from "../assets/img/orange-feature-section.jpg";
@@ -40,8 +41,13 @@ export default function Orange() {
           <ProjectHeader currentProjectId={currentProjectId} />
           <ProjectText textID={text1}></ProjectText>
           <div className="flex grid-cols-12 flex-col gap-12 lg:grid">
-            <div className="col-start-1 col-end-7 rounded-xl bg-gray">
-              <img src={OrangeMobile} alt="" />
+            <div className="relative col-start-1 col-end-7 overflow-hidden rounded-xl bg-gray">
+              <img className="relative z-1" src={OrangeMobile} alt="" />
+              <img
+                className="absolute inset-0 h-full w-full object-cover filter brightness-15"
+                src={OrangeSpace}
+                alt=""
+              />
             </div>
             <div className="col-start-7 col-end-13 overflow-hidden rounded-xl bg-gray">
               <img className="h-full object-cover" src={OrangeMockup} alt="" />

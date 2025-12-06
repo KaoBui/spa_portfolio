@@ -14,7 +14,7 @@ const ProjectCard = forwardRef(function ProjectCard(
       data-url={url}
     >
       <div className="img-container br-s relative h-full w-full overflow-hidden rounded-2xl">
-        <div className="img-overlay absolute top-0 z-2 h-2/5 w-full bg-white/25 backdrop-blur-xl"></div>
+        <div className="img-overlay hidden md:block absolute top-0 z-2 h-2/5 w-full bg-white/25 backdrop-blur-xl"></div>
         <Link to={url} className="absolute inset-0 h-full w-full">
           <img
             className="project-img h-full w-full object-cover"
@@ -24,7 +24,7 @@ const ProjectCard = forwardRef(function ProjectCard(
         </Link>
       </div>
 
-      <div className="flex gap-4">
+      <div className="flex gap-4 flex-wrap">
         <p className="rounded-full border-1 border-dark bg-dark px-2 py-1 text-white text-0 md:text-1">
           {year}
         </p>

@@ -6,6 +6,7 @@ import Orange from "./pages/Orange";
 import Adecco from "./pages/Adecco";
 import TheArtOffice from "./pages/TheArtOffice";
 import FakeOff from "./pages/FakeOff";
+import Les2Rives from "./pages/L2R";
 import ScrollToTop from "./components/ScrollToTop";
 import IntroAnimation from "./components/IntroAnimation";
 
@@ -25,6 +26,7 @@ function App() {
             <Route path="/projects/adecco" element={<Adecco />} />
             <Route path="/projects/the-art-office" element={<TheArtOffice />} />
             <Route path="/projects/fake-off" element={<FakeOff />} />
+            <Route path="/projects/les-2-rives" element={<Les2Rives />} />
           </Routes>
         </main>{" "}
       <Footer />

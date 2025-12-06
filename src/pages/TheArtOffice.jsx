@@ -36,7 +36,7 @@ const text3 = {
 };
 
 export default function TheArtOffice() {
-  const currentProjectId = 3;
+  const currentProjectId = 4;
 
   return (
     <Layout>

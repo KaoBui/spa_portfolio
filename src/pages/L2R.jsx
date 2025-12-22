@@ -54,19 +54,17 @@ export default function Les2Rives() {
       <section className="space-y-24">
         <ProjectHeader currentProjectId={currentProjectId} />
         <div className="grid-cols-12 gap-12 space-y-8 lg:grid lg:space-y-0">
-          <div className="col-start-1 col-end-6 flex flex-col items-start justify-end gap-2">
+          <div className="col-start-2 col-end-8 flex flex-col items-start justify-end gap-2">
             <p className="text-center text-0 font-bold text-black text-light uppercase">
               (the challenge)
             </p>
-            <RevealTitle className="text-3 leading-[1.2]">
+            <RevealTitle className="text-4 leading-[1.2] text-black">
               “Our website is not as good as our competitors’.”
             </RevealTitle>
           </div>
-          <div className="col-start-7 col-end-13 space-y-2">
-            <p className="line text-2 text-light">
-              That was the concern Les 2 Rives shared with me when we started
-              working together. Although they’ve been a trusted institution for
-              nearly 20 years, their website didn’t reflect their expertise or
+          <div className="col-start-6 col-end-12 row-start-2 space-y-2">
+            <p className="text-2 text-light">
+              That was the concern of Les 2 Rives, a trusted institution in professional reorientation. Their website didn’t reflect their expertise or
               their brand anymore. In a market becoming more competitive, they
               needed a new website to stay relevant.
             </p>
@@ -74,15 +72,15 @@ export default function Les2Rives() {
         </div>
         <BeforeAfterSlider beforeImg={Before} afterImg={After} />
         <div className="grid-cols-12 gap-12 space-y-8 lg:grid lg:space-y-0">
-          <div className="col-start-1 col-end-6 flex flex-col items-start justify-end gap-2">
+          <div className="col-start-2 col-end-8 flex flex-col items-start justify-end gap-2">
             <p className="text-center text-0 font-bold text-black text-light uppercase">
               (the approach)
             </p>
-            <RevealTitle className="text-3 leading-[1.2]">
-              Keep it clean and make it pop !
+            <RevealTitle className="text-4 leading-[1.2]">
+              Keep it clean but make it pop !
             </RevealTitle>
           </div>
-          <div className="col-start-7 col-end-13 space-y-4">
+          <div className="col-start-6 col-end-12 space-y-4">
             <p className="line text-2 text-light">
               I started by studying their competitors. Some were very playful,
               others extremely serious. Les 2 Rives needed something balanced.
@@ -120,15 +118,15 @@ export default function Les2Rives() {
           </div>
         </div>
         <div className="grid-cols-12 gap-12 space-y-8 lg:grid lg:space-y-0">
-          <div className="col-start-1 col-end-6 flex flex-col items-start justify-end gap-2">
+          <div className="col-start-2 col-end-8 flex flex-col items-start justify-end gap-2">
             <p className="text-center text-0 font-bold text-black text-light uppercase">
               (the work)
             </p>
-            <RevealTitle className="text-3 leading-[1.2]">
-              The new website doesn’t just look nice — it works better too !
+            <RevealTitle className="text-4 leading-[1.2]">
+              The new website doesn’t just look nice — it works better too!
             </RevealTitle>
           </div>
-          <div className="col-start-7 col-end-13 space-y-4">
+          <div className="col-start-6 col-end-12 space-y-4">
             <p className="line text-2 text-light">
               Beyond the visual redesign, I worked with the team on content to
               improve traffic and conversions. I rebuilt the information

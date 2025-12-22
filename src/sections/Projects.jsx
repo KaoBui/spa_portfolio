@@ -184,7 +184,7 @@ export default function Projects() {
           </div>
         </div>
         <div className="hidden flex-col items-start justify-end gap-8 lg:flex">
-          <h4 ref={titleRef} className="text-2 leading-[0.8] 2xl:text-3">
+          <h4 ref={titleRef} className="text-3 leading-[0.8] xl:text-3">
             {activeProject.title}
           </h4>
           <Button href={activeProject.url}>SEE MORE</Button>

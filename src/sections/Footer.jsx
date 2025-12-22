@@ -57,7 +57,7 @@ const Footer = () => {
           <CurrentTime />
           <p> Lyon, France</p>
         </div>
-        <div className="absolute top-0 left-0 -z-1 lg:h-[200px] w-[200%] lg:w-full overflow-hidden">
+        <div className="absolute bottom-0 left-0 -z-1 lg:h-[20vh] w-[200%] lg:w-full overflow-hidden">
           <svg
             ref={svgRef}
             className="opacity-[0.15]"

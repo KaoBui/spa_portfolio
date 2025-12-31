@@ -15,6 +15,7 @@ export default function RevealTitle({ children, className = "" }) {
       // Split the text into words
       let split = SplitText.create(titleRef.current, {
         type: "words",
+        wordsClass: "pb-2",
         mask: "words",
       });
 

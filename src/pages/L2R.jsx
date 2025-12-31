@@ -58,8 +58,8 @@ export default function Les2Rives() {
             <p className="text-center text-0 font-bold text-black text-light uppercase">
               (the challenge)
             </p>
-            <RevealTitle className="text-4 leading-[1.2] text-black">
-              “Our website is not as good as our competitors’.”
+            <RevealTitle className="text-4 leading-none text-black tracking-tight">
+              “Our website feels outdated.”
             </RevealTitle>
           </div>
           <div className="col-start-6 col-end-12 row-start-2 space-y-2">
@@ -76,7 +76,7 @@ export default function Les2Rives() {
             <p className="text-center text-0 font-bold text-black text-light uppercase">
               (the approach)
             </p>
-            <RevealTitle className="text-4 leading-[1.2]">
+            <RevealTitle className="text-4 leading-none text-black tracking-tight">
               Keep it clean but make it pop !
             </RevealTitle>
           </div>
@@ -93,12 +93,12 @@ export default function Les2Rives() {
             </p>
           </div>
         </div>
-        <div className="grid grid-cols-12 gap-12">
-          <div className="col-start-1 col-end-7 flex max-h-screen flex-col justify-center gap-16 overflow-hidden rounded-xl bg-gray p-12">
+        <div className="flex flex-col lg:grid grid-cols-12 gap-12">
+          <div className="col-start-1 col-end-7 flex flex-col justify-center gap-16 overflow-hidden rounded-xl bg-gray p-12">
             <img className="max-w-3xl" src={typo2} alt="" />{" "}
             <img className="max-w-3xl" src={typo1} alt="" />
           </div>
-          <div className="col-start-7 col-end-13 flex max-h-screen flex-col gap-16 overflow-hidden rounded-xl bg-gray p-12">
+          <div className="col-start-7 col-end-13 flex flex-col gap-16 overflow-hidden rounded-xl bg-gray p-12">
             <div className="space-y-4">
               <p className="text-1">Primary color</p>
               <img
@@ -122,7 +122,7 @@ export default function Les2Rives() {
             <p className="text-center text-0 font-bold text-black text-light uppercase">
               (the work)
             </p>
-            <RevealTitle className="text-4 leading-[1.2]">
+            <RevealTitle className="text-4 leading-none text-black tracking-tight">
               The new website doesn’t just look nice — it works better too!
             </RevealTitle>
           </div>
@@ -140,7 +140,7 @@ export default function Les2Rives() {
           </div>
         </div>{" "}
         <ProjectCarousel images={projectImages} />
-        <div className="grid grid-cols-12 gap-12">
+        <div className="flex lg:grid grid-cols-12 gap-12">
           <div className="col-start-1 col-end-13 flex max-h-screen flex-col justify-center gap-16 overflow-hidden rounded-xl bg-gray">
             <img className="h-full object-cover"  src={mobiles} alt="" />
           </div>

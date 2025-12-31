@@ -16,13 +16,13 @@ const ProjectText = ({ textID }) => {
         <p className="text-center text-0 font-bold text-black text-light uppercase">
           ({textID.tag})
         </p>
-        <RevealTitle className="text-4 leading-[1.2] text-black">
+        <RevealTitle className="text-3 lg:text-4 leading-none tracking-tight text-black">
           {textID.title}{" "}
         </RevealTitle>
       </div>
       <div className="col-start-6 col-end-12 row-start-2 flex flex-col justify-end gap-4">
         {texts.map((text, index) => (
-          <p key={index} className="text-2 text-light">
+          <p key={index} className="text-1 lg:text-2 text-light">
             {text}
           </p>
         ))}

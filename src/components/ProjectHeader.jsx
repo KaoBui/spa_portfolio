@@ -110,7 +110,7 @@ const ProjectHeader = ({ currentProjectId }) => {
   return (
     <div
       ref={projectHeaderRef}
-      className="flex min-h-dvh flex-col justify-end gap-12 lg:pt-56"
+      className="flex min-h-dvh flex-col justify-end gap-12 pt-56"
     >
       <div
         ref={projectInfoRef}

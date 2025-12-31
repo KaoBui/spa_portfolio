@@ -13,8 +13,8 @@ const text1 = {
   tag: "challenge",
   title: "Improving a high-traffic entry point",
   texts: [
-    "Adecco is the world's largest recruitment agency, with their French homepage receiving tens of thousands of daily visitors. Despite being the market leader, their homepage faced two critical issues: an outdated design and overwhelming information density. Users were confronted with excessive text, multiple competing elements, and unclear visual hierarchy.",
-    "My mission was to modernize the homepage design while significantly reducing information overload to create a cleaner, more intuitive job search experience.",
+    "With tens of thousands of users landing on Adecco France’s homepage each day, the experience had become cluttered, text-heavy, and hard to navigate.",
+    "My mission: modernize the design, cut the noise, and rebuild a clearer path for users to find what they need.",
   ],
 };
 
@@ -22,15 +22,15 @@ const text2 = {
   tag: "approach",
   title: "Research, prototyping, testing",
   texts: [
-    "Starting with benchmarking and behavioral data analysis, I identified key usability issues on the homepage. Based on these insights, I designed an interactive mockup focused on clarity and usability. I then tested the new version with internal team and real users through A/B testing and interviews, refining the design to better meet user expectations.",
+    "After benchmarking and analyzing user behavior, I identified the homepage’s key usability problems. I created a clearer, more intuitive prototype, then tested it internally and with real users. A/B testing and interviews helped refine the design to match user needs.",
   ],
 };
 
 const text3 = {
   tag: "solution",
-  title: "Modernizing design and tackling information overload",
+  title: "Cutting the noise to let users find their way",
   texts: [
-    "I restructured the homepage by focusing on clarity, simplicity, and user intent. Each section was redesigned using UX principles and real insights. The new layout prioritizes key actions, reduces cognitive load, and offers a cleaner, more accessible, and visually modern experience that better guides users through the site.",
+    "The original homepage tried to say everything at once. I redesigned it to say only what mattered. By focusing on user intent and simplifying each section, the new version feels lighter, clearer, and far easier to navigate.",
   ],
 };
 
@@ -41,27 +41,7 @@ export default function Adecco() {
     <Layout>
       <section className="space-y-16 lg:space-y-36">
         <ProjectHeader currentProjectId={currentProjectId} />
-        <div className="grid-cols-12 gap-12 space-y-8 lg:grid lg:space-y-0">
-          <div className="col-start-2 col-end-8 flex flex-col items-start justify-end gap-2">
-            <p className="text-center text-0 font-bold text-black text-light uppercase">
-              (the challenge)
-            </p>
-            <RevealTitle className="text-4 leading-[1.2] text-black">
-              Improving a high-traffic entry point
-            </RevealTitle>
-          </div>
-          <div className="col-start-6 col-end-12 row-start-2 space-y-2">
-            <p className="text-2 text-neutral-800">
-              With tens of thousands of users landing on Adecco France’s
-              homepage each day, the experience had become cluttered,
-              text-heavy, and hard to navigate.
-            </p>
-            <p className="text-2 text-neutral-800">
-              My mission: modernize the design, cut the noise, and rebuild a
-              clearer path for users to find what they need.
-            </p>
-          </div>
-        </div>
+        <ProjectText textID={text1}></ProjectText>
         <div className="grid grid-cols-12 gap-12 overflow-hidden rounded-xl bg-gray p-6 lg:p-12 lg:px-24">
           <div className="col-start-2 col-end-12 flex">
             <div className="relative flex aspect-square flex-1">
@@ -121,44 +101,9 @@ export default function Adecco() {
             </div>
           </div>
         </div>
-        <div className="grid-cols-12 gap-12 space-y-8 lg:grid lg:space-y-0">
-          <div className="col-start-2 col-end-8 flex flex-col items-start justify-end gap-2">
-            <p className="text-center text-0 font-bold text-black text-light uppercase">
-              (the approach)
-            </p>
-            <RevealTitle className="text-4 leading-[1.2] text-black">
-              Research, prototyping, testing
-            </RevealTitle>
-          </div>
-          <div className="col-start-6 col-end-12 row-start-2 space-y-2">
-            <p className="text-2 text-neutral-800">
-              After benchmarking and analyzing user behavior, I identified the
-              homepage’s key usability problems. I created a clearer, more
-              intuitive prototype, then tested it internally and with real
-              users. A/B testing and interviews helped refine the design to
-              match user needs.
-            </p>
-          </div>
-        </div>
+        <ProjectText textID={text2}></ProjectText>
         <ProjectTabs />
-        <div className="grid-cols-12 gap-12 space-y-8 lg:grid lg:space-y-0">
-          <div className="col-start-2 col-end-8 flex flex-col items-start justify-end gap-2">
-            <p className="text-center text-0 font-bold text-black text-light uppercase">
-              (the solution)
-            </p>
-            <RevealTitle className="text-4 leading-[1.2] text-black">
-              Cutting the noise to let users find their way
-            </RevealTitle>
-          </div>
-          <div className="col-start-6 col-end-12 row-start-2 space-y-2">
-            <p className="text-2 text-neutral-800">
-              The original homepage tried to say everything at once. I
-              redesigned it to say only what mattered. By focusing on user
-              intent and simplifying each section, the new version feels
-              lighter, clearer, and far easier to navigate.
-            </p>
-          </div>
-        </div>
+        <ProjectText textID={text3}></ProjectText>
         <div className="overflow-hidden rounded-xl bg-gray">
           <img
             src={AdeccoMockup}
@@ -171,16 +116,16 @@ export default function Adecco() {
             <p className="text-center text-0 font-bold text-black text-light uppercase">
               (the results)
             </p>
-            <RevealTitle className="text-4 leading-[1.2] text-black">
+            <RevealTitle className="text-4 leading-none tracking-tight text-black">
               Did the redesign deliver results?
             </RevealTitle>
           </div>
-          <div className="col-start-6 col-end-12 row-start-2 space-y-2">
-            <p className="text-2 text-neutral-800">
+          <div className="col-start-6 col-end-12 row-start-2 space-y-4">
+            <p className="text-2 text-light">
               A year after launch, I analyzed behavioral data to see if the
               redesign worked.
             </p>
-            <p className="text-2 text-neutral-800">
+            <p className="text-2 text-light">
               At first glance, the redesign didn’t bring major changes to
               overall site performance. But looking deeper into the data, I
               found higher user engagement in key areas like the search bar,

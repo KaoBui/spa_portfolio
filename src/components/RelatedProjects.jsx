@@ -8,7 +8,7 @@ const RelatedProjects = ({ currentProjectId }) => {
     <section id="projects" className="related-projects">
       <div className="mb-10 flex flex-col gap-2">
         <h2 className="text-4 leading-none font-bold tracking-tighter">
-          Related projects
+          Other projects
         </h2>
       </div>
       <div className="grid gap-12 md:grid-cols-2">

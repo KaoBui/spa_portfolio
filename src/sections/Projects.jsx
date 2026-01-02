@@ -86,45 +86,112 @@ export default function Projects() {
 
     // PIN FOR SMALLER SCREEN
     mm.add("(max-width: 1023px)", () => {
-      const totalWidth =
-        projectImgRef.current.scrollWidth - projectImgRef.current.offsetWidth;
-
-      const sideScroll = gsap.to(cardRefs.current, {
-        x: () => -totalWidth, // move left
-        ease: "none",
-        scrollTrigger: {
-          trigger: projectsRef.current, // the wrapper containing the cards
-          start: "top top",
-          end: () => "+=" + totalWidth,
-          scrub: true,
-          pin: projectsRef.current, // pin left column
-          pinSpacing: true, // no extra space after pinning
-        },
+      const cards = (cardRefs.current || []).filter(Boolean);
+      const mobileProjectTriggers = cards.slice(0, -1).map((card, index) => {
+        const mobileTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: card,
+            start: "bottom bottom",
+            end: "+=50%",
+            pin: true,
+            pinSpacing: false,
+            scrub: true,
+            onEnter: () => setActiveProject(projects[index]),
+            onEnterBack: () => setActiveProject(projects[index]),
+          },
+        });
+        mobileTl.to(card, {
+          filter: "blur(10px)", // tweak blur strength
+          opacity: 0, // optional
+          scale: 0.95, // optional
+          ease: "none",
+        });
+        return mobileTl.scrollTrigger;
       });
-      ScrollTrigger.create({
+
+      const pinProject = ScrollTrigger.create({
         trigger: projectsRef.current,
         start: "top top",
-        end: "+=" + totalWidth,
+        endTrigger: projectImgRef.current,
+        end: "bottom bottom",
+        pin: projectLeftRef.current,
         scrub: true,
-        onUpdate: (self) => {
-          const scrollX = self.progress * totalWidth; // how far we scrolled in px
-
-          cardRefs.current.forEach((card, index) => {
-            const cardStart = card.offsetLeft; // px from container start
-            const cardEnd = cardStart + card.offsetWidth;
-
-            if (scrollX >= cardStart && scrollX < cardEnd) {
-              setActiveProject(projects[index]);
-            }
-          });
-        },
+        pinSpacing: false,
+        markers: true,
       });
 
       return () => {
-        sideScroll.kill();
+        pinProject.kill();
+        mobileProjectTriggers.forEach((t) => t.kill());
+        ScrollTrigger.getAll().forEach((st) => st.kill());
       };
-    });
 
+      // var panels = cardRefs.current;
+      // panels.pop();
+      // panels.forEach((panel, i) => {
+      //   let mobiletl = gsap.timeline({
+      //     scrollTrigger: {
+      //       trigger: panel,
+      //       start: "bottom bottom",
+      //       pinSpacing: false,
+      //       pin: true,
+      //       scrub: true,
+      //       markers: true,
+      //       // onRefresh: () =>
+      //       //   gsap.set(panel, {
+      //       //     transformOrigin:
+      //       //       "center " +
+      //       //       (panel.offsetHeight - window.innerHeight / 2) +
+      //       //       "px",
+      //       //   }),
+      //     },
+      //   });
+      //   // mobiletl
+      //   //   .fromTo(
+      //   //     panel,
+      //   //     { y: 0, rotate: 0, scale: 1, opacity: 1 },
+      //   //     { y: 0, rotate: 0, scale: 0.5, opacity: 0.5 },
+      //   //     0,
+      //   //   )
+      //   //   .to(panel, { duration: 0.1, opacity: 0 });
+      // });
+      // const totalWidth =
+      //   projectImgRef.current.scrollWidth - projectImgRef.current.offsetWidth;
+
+      // const sideScroll = gsap.to(cardRefs.current, {
+      //   x: () => -totalWidth, // move left
+      //   ease: "none",
+      //   scrollTrigger: {
+      //     trigger: projectsRef.current, // the wrapper containing the cards
+      //     start: "top top",
+      //     end: () => "+=" + totalWidth,
+      //     scrub: true,
+      //     pin: projectsRef.current, // pin left column
+      //     pinSpacing: true, // no extra space after pinning
+      //   },
+      // });
+      // ScrollTrigger.create({
+      //   trigger: projectsRef.current,
+      //   start: "top top",
+      //   end: "+=" + totalWidth,
+      //   scrub: true,
+      //   onUpdate: (self) => {
+      //     const scrollX = self.progress * totalWidth; // how far we scrolled in px
+
+      //     cardRefs.current.forEach((card, index) => {
+      //       const cardStart = card.offsetLeft; // px from container start
+      //       const cardEnd = cardStart + card.offsetWidth;
+
+      //       if (scrollX >= cardStart && scrollX < cardEnd) {
+      //         setActiveProject(projects[index]);
+      //       }
+      //     });
+      //   },
+      // });
+      // return () => {
+      //   sideScroll.kill();
+      // };
+    });
     return () => mm.revert();
   });
 
@@ -193,7 +260,7 @@ export default function Projects() {
       <div
         id="project-right"
         ref={projectImgRef}
-        className="col-span-full flex gap-12 overflow-hidden opacity-100 md:gap-16 lg:col-start-7 lg:col-end-13 lg:flex-col"
+        className="col-span-full flex flex-col gap-0 overflow-hidden opacity-100 md:gap-16 lg:col-start-7 lg:col-end-13"
       >
         {projects.map((project, i) => (
           <ProjectCard

@@ -9,7 +9,7 @@ const ProjectCard = forwardRef(function ProjectCard(
   return (
     <div
       ref={ref}
-      className="project min-w flex h-[65vh] min-w-full flex-col items-start justify-end gap-4 py-6 md:h-screen md:py-8 lg:items-end lg:py-12 2xl:py-12 3xl:py-16"
+      className="project flex h-[65vh] w-full flex-col items-start justify-end gap-4 py-6 md:h-screen md:py-8 lg:items-end lg:py-12 2xl:py-12 3xl:py-16"
       data-title={title}
       data-url={url}
     >

@@ -39,7 +39,7 @@ export default function Hero() {
           autoAlpha: 0,
           ease: "power4.out",
           stagger: 0.04,
-          delay: 3.75,
+          delay: 4,
         });
         tl.fromTo(
           imgRef.current,
